@@ -28,6 +28,9 @@ url: "https://png270.github.io" # the base hostname & protocol for your site, e.
 
 github_username:  png270
 
+header_pages:
+  - index.md
+
 # Build settings
 theme: minima
 plugins:
