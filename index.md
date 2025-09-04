@@ -1,6 +1,8 @@
 ---
-layout: default
-title: "Welcome"
+title: /
+layout: home
+permalink: /
 ---
 
-## Hi👋
+# Lorem ipsum
+
