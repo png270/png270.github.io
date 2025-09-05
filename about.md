@@ -1,11 +1,11 @@
 ---
 layout: page
-title: About
+title: About /
 permalink: /about/
 ---
 
 # About Me
-Hi, I'm Siddhi. This blog is my space where I document my random cybersecurity related projects.
+Hi, I'm Siddhi. This blog is my space where I document random cybersecurity related projects.
 
 ## Connect with me - 
 - [LinkedIn](https://www.linkedin.com/in/siddhi-lad/)
@@ -14,5 +14,4 @@ Hi, I'm Siddhi. This blog is my space where I document my random cybersecurity r
 
   
 
-*Stay breachy* 🐾
 

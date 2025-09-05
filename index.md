@@ -1,5 +1,5 @@
 ---
-title: /breachy270
+title: Breachy270 /
 layout: home
 permalink: /
 ---

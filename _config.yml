@@ -9,11 +9,12 @@ github_username: png270
 header_pages:
   - index.md
   - about.md
+  - posts.md
 
 style: dark # dark (default), light or hacker
 listen_for_clients_preferred_style: true # false (default) or true
 
-footer: 'Contact <a href="https://www.linkedin.com/in/siddhi-lad/">LinkedIn</a> - <a href="https://github.com/png270">GitHub</a>'
+footer: 'Contact: <a href="https://www.linkedin.com/in/siddhi-lad/">LinkedIn</a>'
 
 google_analytics: UA-NNNNNNNN-N
 disable_google_fonts: true
