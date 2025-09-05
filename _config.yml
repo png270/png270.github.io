@@ -20,7 +20,7 @@ disable_google_fonts: false
 
 
 # Build settings
-remote_theme: b2a3e8/jekyll-theme-console
+remote_theme: b2a3e8/jekyll-theme-console@76983908faa6f06ffd87b70165f2632790d36687
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
