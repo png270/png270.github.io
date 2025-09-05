@@ -1,8 +1,9 @@
 ---
-title: /
+title: /breachy270
 layout: home
 permalink: /
 ---
 
-# Lorem ipsum
+# Lo(B)re(achy)m i(270)psum
+Welcome to Breachy270. This is a blog that documents simple, subtle cybersec stuff.
 

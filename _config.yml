@@ -1,4 +1,4 @@
-title: "Trial and Errir"
+title: "Breachy270"
 author: "Siddhi Lad"
 description: "A personal blog where I document my projects."
 url: "https://png270.github.io"  # base URL
@@ -13,10 +13,10 @@ header_pages:
 style: dark # dark (default), light or hacker
 listen_for_clients_preferred_style: true # false (default) or true
 
-footer: 'follow us on <a href="https://twitter.com/xxx">twitter</a>'
+footer: 'Contact <a href="https://www.linkedin.com/in/siddhi-lad/">LinkedIn</a> - <a href="https://github.com/png270">GitHub</a>'
 
 google_analytics: UA-NNNNNNNN-N
-disable_google_fonts: false
+disable_google_fonts: true
 
 
 # Build settings
