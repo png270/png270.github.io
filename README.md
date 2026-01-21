@@ -7,4 +7,4 @@ This site is powered by [Astro](https://astro.build/) with the [MultiTerm](https
 
 ## Live Site
 
-[https://png.270.github.io](https://png.270.github.io)
+([https://png.270.github.io](https://png270.github.io/))
