@@ -4,25 +4,6 @@
     "home": {
       "type": "object",
       "properties": {
-        "avatarImage": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "type": "string"
-            },
-            "alt": {
-              "type": "string",
-              "default": "My avatar"
-            }
-          },
-          "required": [
-            "src"
-          ],
-          "additionalProperties": false
-        },
-        "githubCalendar": {
-          "type": "string"
-        },
         "$schema": {
           "type": "string"
         }

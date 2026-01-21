@@ -1,9 +1,9 @@
 ---
-title: 'Understanding Closures in JavaScript'
+title: 'Understanding Go'
 published: 2025-07-01
 draft: false
-description: 'A deep dive into closures and their applications in JavaScript.'
-tags: ['javascript']
+description: 'Introduction to Go?'
+tags: ['Go']
 ---
 
 ![javascript code](https://upload.wikimedia.org/wikipedia/commons/e/ef/Programming_code.jpg)

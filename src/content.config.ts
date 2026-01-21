@@ -24,17 +24,11 @@ const postsCollection = defineCollection({
 })
 
 const homeCollection = defineCollection({
-  loader: glob({ pattern: ['home.md', 'home.mdx'], base: './src/content' }),
-  schema: ({ image }) =>
-    z.object({
-      avatarImage: z
-        .object({
-          src: image(),
-          alt: z.string().optional().default('My avatar'),
-        })
-        .optional(),
-      githubCalendar: z.string().optional(), // GitHub username for calendar
-    }),
+  loader: glob({
+    pattern: ['home.md', 'home.mdx'],
+    base: './src/content',
+  }),
+  schema: z.object({}),
 })
 
 const addendumCollection = defineCollection({
@@ -53,5 +47,5 @@ const addendumCollection = defineCollection({
 export const collections = {
   posts: postsCollection,
   home: homeCollection,
-  addendum: addendumCollection,
+  //addendum: addendumCollection,
 }
