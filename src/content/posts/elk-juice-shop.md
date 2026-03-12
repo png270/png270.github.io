@@ -12,11 +12,11 @@ In this article, I’ll document everything I’ve done so far and how I plan to
 
 My tech-stack, for now, includes – Docker, ELK Stack & GitHub Actions pipeline.
 
-#### Setting up OWASP Juice Shop on Docker
+### Setting up OWASP Juice Shop on Docker
 
 Juice Shop is a “deliberately made vulnerable” web application that acts as a “guinea pig” for security enthusiasts to test their hacking skills as well as security tools against a popular web-app stack.
 
-##### To set it up, follow the instructions on the official GitHub repository – [Link]
+### To set it up, follow the instructions on the official GitHub repository – [Link](https://github.com/juice-shop/juice-shop)
 1. Install Docker, if not already done.
 2. Use command – `docker pull bkimminich/juice-shop`
 3. Use command – `docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop`
@@ -45,7 +45,7 @@ services:
 Run – `docker compose up -d`
 Check again – `http://localhost:3000`
 
-#### ELK What?
+## ELK What?
 ELK is a collection of three products developed and maintained by Elastic. It also adds “Beats” to it stack as well, the fourth product.
 ELK is basically a search and analysis engine. The components are as follows – 
 1. Logstash - Log aggregator, collects data from various input sources, executes and transforms it, sends to an output destination (acts as a processor of sorts)
@@ -61,7 +61,7 @@ So, the stack looks something like this –
 
 > There’s a subtle difference between ELK and Elastic stack. ELK Stack is ELK components together (Elasticsearch, Logstash, and Kibana). You add Beats and other shippers, it becomes Elastic Stack.
 
-##### Setting up ELK – 
+### Setting up ELK – 
 1. Create another `docker-compose.yml` file.
 ```
 version: "3.8"
@@ -148,7 +148,7 @@ output {
 
 ```
 
-#### Check everything is working –
+### Check everything is working –
 Run `docker compose up -d` 
 For Elasticsearch – `http://localhost:9200`
 For Kibana – `http://localhost:5601`
@@ -162,7 +162,7 @@ You’ll have to create a “Data View” -
 
 This should start showing all the logs.
 
-#### GitHub Actions
+## GitHub Actions
 
 I'm using GitHub Actions here to manage my project. It's GitHub's built-in CI/CD system. 
 
@@ -174,7 +174,7 @@ It utilizes a temporary VM called a "Runner" where it'll execute and run checks.
 
 Hence, good for automated validation.
 
-##### To set Up GitHub Actions Pipeline
+### To set Up GitHub Actions Pipeline
 
 1. Create a folder - `.github`. This won't show up when you check with the command `ls`. So try with `ls -a` as folders with `.` are often hidden in Linux based systems.
 2. Create a workflow folder - `mkdir -p .github/workflows`
