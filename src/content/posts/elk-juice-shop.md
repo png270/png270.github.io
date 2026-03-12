@@ -1,6 +1,6 @@
 ---
 title: 'SecOps with OWASP Juice Shop'
-published: 2025-07-10
+published: 2026-03-12
 draft: false
 description: 'Setting up ELK for OWASP Juice Shop'
 tags: ['ELK', 'Automation', 'OWASP Juice Shop']
@@ -16,7 +16,8 @@ My tech-stack, for now, includes – Docker, ELK Stack & GitHub Actions pipeline
 
 Juice Shop is a “deliberately made vulnerable” web application that acts as a “guinea pig” for security enthusiasts to test their hacking skills as well as security tools against a popular web-app stack.
 
-### To set it up, follow the instructions on the official GitHub repository – [Link](https://github.com/juice-shop/juice-shop)
+#### To set it up, follow the instructions on the [official GitHub repository](https://github.com/juice-shop/juice-shop) -
+
 1. Install Docker, if not already done.
 2. Use command – `docker pull bkimminich/juice-shop`
 3. Use command – `docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop`
@@ -148,7 +149,7 @@ output {
 
 ```
 
-### Check everything is working –
+#### Check everything is working –
 Run `docker compose up -d` 
 For Elasticsearch – `http://localhost:9200`
 For Kibana – `http://localhost:5601`
