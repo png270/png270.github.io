@@ -1,0 +1,465 @@
+/* ==========================================================================
+   1. Reset and Base Styles (From Your Homepage)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    
+    /* COMMENT: Replace 'giphy.gif' with your actual GIF filename below */
+    background: url('/Users/siddhilad/Desktop/PortoBlogo/giphy.gif') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ==========================================================================
+   2. Main White Container & Custom Scrollbar (Uniform Size & Behavior)
+   ========================================================================== */
+.main-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 1000px;
+    height: 80vh; /* Fixed height to force internal scrolling */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 40px 50px;
+    
+    /* Custom Scrollbar configuration for the white region */
+    overflow-y: scroll;
+}
+
+/* Custom Scrollbar styling matching the grey bar */
+.main-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.main-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.main-container::-webkit-scrollbar-thumb {
+    background-color: #d1d1d6; 
+    border-radius: 0px;
+}
+
+/* ==========================================================================
+   3. Shared Navbar Elements
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.navbar nav a {
+    color: #000;
+    text-decoration: underline;
+    margin-left: 25px;
+    font-size: 1.1rem;
+}
+
+/* Base structural layout split for the columns */
+.content-wrapper {
+    display: grid;
+    /* Left column stays exactly 220px, right column fills the rest */
+    grid-template-columns: 220px 1fr; 
+    gap: 40px;
+    padding: 0px;
+}
+
+/* ==========================================================================
+   4. Fixed Sidebar Layout for Social Icons (Locked on Space Background)
+   ========================================================================== */
+.social-footer {
+    display: flex;
+    flex-direction: column; 
+   
+}
+
+.social-box {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #000;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.social-box:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* ==========================================================================
+   5. About Me Page Specific Styles (Left & Right Columns)
+   ========================================================================== */
+
+/* Left Profile Column */
+.profile-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+}
+/* ==========================================================================
+   INTERACTIVE BLING AVATAR (With 3D Hover & Image Mirror Flip)
+   ========================================================================== */
+
+/* 1. The Container: Coordinates the 3D translation lifting physics */
+.avatar-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Circular framing window */
+    position: relative;
+    z-index: 1;
+    
+    /* Smooth transition for the physical 3D lift physics */
+    transition: transform 0.15s ease;
+}
+
+/* 2. The Bling Border Layer: Handles the continuous indie color shimmer */
+.avatar-container::after {
+    content: '';
+    position: absolute;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    border-radius: 50%;
+    
+    /* Shimmering Gradient Matrix matching the resume button */
+    background: linear-gradient(45deg, #f3e63b, #f58476, #bfa1f2, #a3c1f7, #c5f0a4, #f3e63b);
+    background-size: 400%;
+    z-index: -1;
+    
+    /* Infinite loop animation configuration */
+    animation: avatarBlingShift 6s linear infinite;
+    
+    /* Transition to track the solid retro 3D drop-shadow */
+    transition: box-shadow 0.15s ease;
+}
+
+/* 3. The Image Frame: Houses your picture and executes the smooth flip */
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #000000; /* Sharp black frame border */
+    display: block;
+
+}
+
+/* ==========================================================================
+   RETRO INTERACTIVE STATES & HOVER PHYSICS
+   ========================================================================== */
+
+/* Hover Action: Lifts the container up-left and triggers the image mirror flip */
+.avatar-container:hover {
+    transform: translate(-4px, -4px); /* Moves container up and left */
+}
+
+/* Isolating the flip directly on the image element so it doesn't break the container physics */
+.avatar-container:hover .profile-pic {
+    transform: scaleX(-1); /* Flips asset cleanly across the X-axis on hover */
+}
+
+/* Spawns the rigid, hard black drop shadow under the bling boundary when hovered */
+.avatar-container:hover::after {
+    box-shadow: 4px 4px 0px #000000; 
+}
+
+/* Active Click Action: Snaps down completely flat when clicked */
+.avatar-container:active {
+    transform: translate(0px, 0px);
+}
+
+.avatar-container:active::after {
+    box-shadow: 0px 0px 0px #000000;
+}
+
+/* ==========================================================================
+   BLING SHIMMER LOOP REPLICATION
+   ========================================================================== */
+@keyframes avatarBlingShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Contact Info Card (Blue Box) */
+.info-card {
+    background-color: #a3c1f7;
+    padding: 15px;
+    width: 100%;
+    max-width: 240px;
+}
+
+.info-card2 {
+    background-color: #f7a3ce;
+    padding: 15px;
+    width: 100%;
+    max-width: 240px;
+}
+
+/* Bulletless Contact Details */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-list li {
+    line-height: 1.4;
+    color: #000;
+    font-size: 0.9rem;
+}
+
+.contact-list a {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Right Bio Column */
+.bio-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-heading {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #1c1c1e;
+    margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   6. Colorful Info Block Grid (Asymmetrical Layout Blocks)
+   ========================================================================== */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.info-block {
+    padding: 15px;
+    border: 1px solid #000;
+    min-height: 75px;
+}
+
+.info-block h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #000;
+}
+
+.info-block p {
+    font-size: 0.95rem;
+    color: #1c1c1e;
+    line-height: 1.3;
+}
+
+/* Flexbox Column Layout rules */
+.info-grid-flex {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.info-column-left, 
+.info-column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1; /* Makes both columns take up equal width */
+}
+
+/* Ensure the layout stacks into one column on mobile mobile views */
+@media (max-width: 768px) {
+    .info-grid-flex {
+        flex-direction: column;
+    }
+}
+
+/* Individual Block Custom Colors and Heights */
+.block-purple { background-color: #bfa1f2; }
+.block-yellow { background-color: #faf6b2; grid-row: span 2; min-height: 150px; }
+.block-green  { background-color: #c5f0a4; min-height: 110px; }
+.block-orange { background-color: #f7ce97; min-height: 100px; }
+.block-red    { background-color: #f58476; }
+
+/* ==========================================================================
+   Vertical Project Stack (Stacked Content Layout)
+   ========================================================================== */
+
+/* Outer container forcing a single-column vertical column stack */
+.project-stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Perfect spacing between stacked cards */
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Individual Interactive Project Box Card Framework */
+.project-list-card {
+    background-color: #ffffff;    /* White boxes */
+    border: 2px solid #000000;    /* Sharp black borders */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;        /* Removes default link text underlines */
+    color: #000000;               /* Base font color injection */
+    width: 100%;
+    height: auto;                 /* Fluid height scales automatically based on text volume */
+    
+    /* Configures smooth rendering mechanics for the 3D translation */
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Typography styles matching your requested layout blueprint */
+.project-list-card h6 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+    color: #000000;
+}
+
+.project-list-card .project-tech {
+    font-size: 0.85rem;
+    color: #3a3a3c;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    display: block;
+}
+
+.project-list-card .project-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #1c1c1e;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Retro 3D Hover & Click Physics
+   ========================================================================== */
+
+/* Hover State: Lifts up and maps a rigid, hard black drop shadow */
+.project-list-card:hover {
+    transform: translate(-4px, -4px); /* Moves card up and left smoothly */
+    box-shadow: 4px 4px 0px #000000;  /* Hard-edge black shadow effect pops out */
+    background-color: #ffffff;        /* Safeguards container background stay white */
+}
+
+/* Active Pressed State: Snaps back down flush on click input interaction */
+.project-list-card:active {
+    transform: translate(0px, 0px);
+    box-shadow: 0px 0px 0px #000000;
+}
+
+/* ==========================================================================
+   7. Responsive Breakdowns for Tablet/Mobile Views
+   ========================================================================== */
+@media (max-width: 768px) {
+    .main-container {
+        height: auto;
+        overflow-y: visible;
+        padding: 30px 20px;
+    }
+    
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    /* Layout Adjustments for the Profile Section on Mobile */
+    .profile-column {
+        align-items: center;
+        width: 100%;
+    }
+    
+    .info-card {
+        max-width: 100%;
+    }
+    
+    /* Flatten Info Grid out on Mobile screens */
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-block {
+        grid-row: auto !important;
+        min-height: auto !important;
+    }
+    
+    /* Drop the social icons back to a bottom row when side space is limited */
+    .social-footer {
+        position: static;
+        flex-direction: row;
+        transform: none;
+        margin: 20px auto 0 auto;
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   Indie Bling Resume Button (Option 2: Retro Color Flash)
+   ========================================================================== */
+.resume-btn-flash {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 150px;
+    padding: 12px 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 5px;
+    
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    
+    /* Trigger the 90s cyber flash */
+    animation: retroBling 1.5s infinite;
+}
+
+@keyframes retroBling {
+    0%, 100% {
+        border-color: #000;
+        box-shadow: 2px 2px 0px #000;
+    }
+    50% {
+        border-color: #f3e63b; /* Matches your logo yellow */
+        background-color: #f3e63b;
+        color: #000;
+        box-shadow: 4px 4px 0px #bfa1f2; /* Drop shadow pop */
+    }
+}

@@ -1,0 +1,230 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    
+    /* COMMENT: Replace 'your-space-background.gif' with your actual GIF filename below */
+    background: url('/Users/siddhilad/Desktop/PortoBlogo/giphy.gif') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Main White Container with Independent Scrollbar */
+.main-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 1000px;
+    height: 80vh; /* Fixed height to force internal scrolling */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 40px 50px;
+    
+    /* Custom Scrollbar configuration for the white region */
+    overflow-y: scroll;
+}
+
+/* Custom Scrollbar styling to match the grey bar in the screenshot */
+.main-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.main-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.main-container::-webkit-scrollbar-thumb {
+    background-color: #d1d1d6; 
+    border-radius: 0px;
+}
+
+/* Navbar Layout */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.navbar nav a {
+    color: #000;
+    text-decoration: underline;
+    margin-left: 25px;
+    font-size: 1.1rem;
+}
+
+/* Content Grid Split */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    flex: 1;
+    align-items: start;
+}
+
+/* Left Column Styling */
+.logo-container {
+    margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   Logo Text Box - Retro Cyber Flash
+   ========================================================================== */
+.logo-text {
+    background-color: #f3e63b; /* Initial bright yellow [cite: 137] */
+    color: #000;
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 2.2rem;
+    font-weight: 900;
+    transform: rotate(-5deg); /* Reused your core angle rotation [cite: 138] */
+    border: 2px solid #000;
+    
+    /* Trigger the rhythmic attention-grabbing loop */
+    animation: logoRetroFlash 2s infinite ease-in-out;
+}
+
+/* Cyber Color Flip Loop */
+@keyframes logoRetroFlash {
+    0%, 100% {
+        background-color: #f3e63b; /* Theme yellow [cite: 137] */
+        box-shadow: 3px 3px 0px #000;
+    }
+    33% {
+        background-color: #bfa1f2; /* Swaps to Pale Purple [cite: 161] */
+        box-shadow: 5px 5px 0px #f58476; /* Contrasting drop shadow [cite: 186] */
+    }
+    66% {
+        background-color: #a3c1f7; /* Swaps to Pale Blue [cite: 197] */
+        box-shadow: 5px 5px 0px #c5f0a4; /* Contrasting drop shadow */
+    }
+}
+.tagline {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #1c1c1e;
+    margin-bottom: 25px;
+    max-width: 320px;
+}
+
+/* Carousel and Controls */
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 340px;
+}
+
+.carousel-container img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid #1c1c1e;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+
+.carousel-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.carousel-controls button {
+    background-color: #e5e5ea;
+    border: 1px solid #aeaeaf;
+    color: #000;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px; /* Slightly rounded corners */
+    transition: background-color 0.2s ease;
+}
+
+.carousel-controls button:hover {
+    background-color: #d1d1d6;
+}
+
+/* Right Column Styling */
+.year-heading {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.article-list {
+    list-style: none;
+}
+
+.article-list li {
+    margin-bottom: 25px;
+}
+
+.article-list li a {
+    color: #000;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+/* Fixed Layout Footer for Social Icons */
+.social-footer {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+.social-box {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #000;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.social-box:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Responsive Breakdowns for Tablet/Mobile views */
+@media (max-width: 768px) {
+    .main-container {
+        height: auto;
+        overflow-y: visible;
+        padding: 30px 20px;
+    }
+    
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .carousel-container {
+        max-width: 100%;
+    }
+}
