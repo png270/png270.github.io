@@ -205,6 +205,10 @@ body {
     padding: 15px;
     width: 100%;
     max-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .info-card2 {
@@ -214,8 +218,21 @@ body {
     max-width: 240px;
 }
 
-/* Bulletless Contact Details */
-.contact-list {
+/* Small highlighter-style label used for the "Latest Writes" card heading */
+.card-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #bffcff;
+    color: #000;
+    padding: 2px 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Bulletless article list (write-ups) */
+.article-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -224,13 +241,13 @@ body {
     gap: 10px;
 }
 
-.contact-list li {
+.article-list li {
     line-height: 1.4;
     color: #000;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
-.contact-list a {
+.article-list a {
     color: #000;
     text-decoration: underline;
 }
@@ -258,12 +275,6 @@ body {
 /* ==========================================================================
    6. Colorful Info Block Grid (Asymmetrical Layout Blocks)
    ========================================================================== */
-.info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
 .info-block {
     padding: 15px;
     border: 1px solid #000;
@@ -273,7 +284,7 @@ body {
 .info-block h3 {
     font-size: 1.1rem;
     font-weight: bold;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     color: #000;
 }
 
@@ -281,6 +292,16 @@ body {
     font-size: 0.95rem;
     color: #1c1c1e;
     line-height: 1.3;
+}
+
+/* Highlighter-style tag used for every block heading (Education, Work, etc.) */
+.block-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #bffcff;
+    color: #000;
+    padding: 2px 6px;
 }
 
 /* Flexbox Column Layout rules */
@@ -311,6 +332,187 @@ body {
 .block-green  { background-color: #c5f0a4; min-height: 110px; }
 .block-orange { background-color: #f7ce97; min-height: 100px; }
 .block-red    { background-color: #f58476; }
+
+/* ==========================================================================
+   6b. Scannable List Components: Work Experience bullets
+   ========================================================================== */
+.exp-entry {
+    margin-bottom: 14px;
+}
+
+.exp-entry:last-child {
+    margin-bottom: 0;
+}
+
+.exp-entry h6 {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.exp-meta {
+    font-size: 0.75rem;
+    font-weight: normal;
+    color: #3a3a3c;
+    margin-left: 6px;
+}
+
+.exp-list {
+    list-style: disc;
+    padding-left: 18px;
+    margin-top: 6px;
+}
+
+.exp-list li {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #1c1c1e;
+    margin-bottom: 4px;
+}
+
+.exp-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   6c. Scannable List Components: Competitions / Volunteering rows
+   ========================================================================== */
+.comp-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.comp-row:last-child {
+    margin-bottom: 0;
+}
+
+.comp-badge {
+    flex-shrink: 0;
+    min-width: 72px;
+    text-align: center;
+    padding: 5px 6px;
+    border: 2px solid #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #000;
+    line-height: 1.2;
+}
+
+.badge-win     { background-color: #f3e63b; }
+.badge-gold    { background-color: #a3c1f7; }
+.badge-neutral { background-color: #ffffff; }
+
+.comp-text h6 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.comp-text p {
+    font-size: 0.85rem;
+    line-height: 1.35;
+    color: #1c1c1e;
+    margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+    .comp-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .comp-badge {
+        min-width: 0;
+        width: fit-content;
+    }
+}
+
+/* ==========================================================================
+   6d. Scannable List Components: Tech Stack chips
+   ========================================================================== */
+.chip-group {
+    margin-bottom: 10px;
+}
+
+.chip-group:last-child {
+    margin-bottom: 0;
+}
+
+.chip-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1.5px solid #000;
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #000;
+    white-space: nowrap;
+}
+
+/* Smaller chip variant for project tech tags (sits on the white card bg) */
+.chip-sm {
+    background-color: #faf6b2;
+    border: 1px solid #000;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   6e. Org logos (work experience + education)
+   ========================================================================== */
+.org-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 1px;
+    vertical-align: -5px;
+    margin-right: 8px;
+}
+
+.org-logo:hover {
+    filter: none;
+}
+
+.org-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.org-row:last-child {
+    margin-bottom: 0;
+}
+
+.org-row p {
+    margin: 0;
+}
+
+.exp-entry h6 .org-logo {
+    margin-right: 6px;
+}
 
 /* ==========================================================================
    Vertical Project Stack (Stacked Content Layout)
@@ -345,22 +547,21 @@ body {
 .project-list-card h6 {
     font-size: 1.1rem;
     font-weight: bold;
-    margin: 0 0 4px 0;
+    margin: 0 0 8px 0;
     line-height: 1.3;
     color: #000000;
 }
 
-.project-list-card .project-tech {
-    font-size: 0.85rem;
-    color: #3a3a3c;
+.project-tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
     margin-bottom: 8px;
-    line-height: 1.4;
-    display: block;
 }
 
 .project-list-card .project-desc {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.45;
     color: #1c1c1e;
     margin: 0;
 }
@@ -403,13 +604,9 @@ body {
         width: 100%;
     }
     
-    .info-card {
+    .info-card,
+    .info-card2 {
         max-width: 100%;
-    }
-    
-    /* Flatten Info Grid out on Mobile screens */
-    .info-grid {
-        grid-template-columns: 1fr;
     }
     
     .info-block {
@@ -434,6 +631,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     width: 100%;
     max-width: 150px;
     padding: 12px 20px;

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Siddhi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="projects-style.css">
+</head>
+
+<body>
+
+    <main class="main-container">
+
+        <div class="navbar">
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="projects.html" style="font-weight: bold;">Projects</a>
+                <a href="../about/about.html">About</a>
+            </nav>
+        </div>
+
+        <section class="projects-hero">
+            <h2 class="projects-heading">Projects</h2>
+            <p class="projects-tagline">Stuff I've built, broken, and (mostly) written up.</p>
+        </section>
+
+        <div class="filter-row" role="group" aria-label="Filter projects by category">
+            <button class="filter-chip is-active" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-chip" data-filter="api" aria-pressed="false">API Security</button>
+            <button class="filter-chip" data-filter="ml" aria-pressed="false">ML / Network</button>
+            <button class="filter-chip" data-filter="blue" aria-pressed="false">Detection & Response</button>
+            <button class="filter-chip" data-filter="chain" aria-pressed="false">Blockchain</button>
+            <button class="filter-chip" data-filter="tooling" aria-pressed="false">Tooling</button>
+        </div>
+
+        <div class="projects-grid">
+
+            <a href="Final_Paper.pdf" dowload="research_paper.pdf" class="project-card" data-category="api">
+                <span class="project-cat cat-api">API Security</span>
+                <h3>Cascading Risks in Open-Banking APIs</h3>
+                <div class="project-tech-row">
+                    <span class="chip chip-sm">FastAPI</span><span class="chip chip-sm">Kong</span><span class="chip chip-sm">Keycloak</span><span class="chip chip-sm">ELK</span><span class="chip chip-sm">PostgreSQL</span><span class="chip chip-sm">Docker</span>
+                </div>
+                <p class="project-desc">Containerized microservices testbed modeling systemic risk in Open Banking architectures. Applied the STRIDE threat model and simulated API exploits to validate existing security controls.</p>
+                <span class="project-link">View write-up/Paper<i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a href="https://github.com/png270/watch_guard_fw_parser" class="project-card" data-category="tooling">
+                <span class="project-cat cat-tooling">Tooling</span>
+                <h3>Watch-Guard Firewall Configuration Parser</h3>
+                <div class="project-tech-row">
+                    <span class="chip chip-sm">Python</span><span class="chip chip-sm">Pandas</span><span class="chip chip-sm">Reg-ex</span><span class="chip chip-sm">Streamlit</span>
+                </div>
+                <p class="project-desc">A python tool built to prase XML configuration files and detect policy violations.</p>
+                <span class="project-link">View on GitHub <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a href="https://github.com/png270/powershell_automation" class="project-card" data-category="tooling">
+                <span class="project-cat cat-tooling">Tooling</span>
+                <h3>PowerShell Automation</h3>
+                <div class="project-tech-row">
+                    <span class="chip chip-sm">PowerShell</span><span class="chip chip-sm">Python</span>
+                </div>
+                <p class="project-desc">A repository of PowerShell scripts written for automated information gathering and detecting deviation from baselines.</p>
+                <span class="project-link">View on GitHub<i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a href="https://github.com/png270/noshell" class="project-card" data-category="tooling">
+                <span class="project-cat cat-tooling">Tooling</span>
+                <h3>NoShell</h3>
+                <div class="project-tech-row">
+                    <span class="chip chip-sm">Go</span>
+                </div>
+                <p class="project-desc">A Linux-style CLI in Go that does nothing — powered by No-as-a-Service (NaaS). Built for the joke, kept for the Go practice.</p>
+                <span class="project-link">View on GitHub <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a href="https://github.com/png270/secops-lab" target="_blank" class="project-card" data-category="blue">
+                <span class="project-cat cat-blue">Detection & Response</span>
+                <h3>SecOps Lab</h3>
+                <div class="project-tech-row">
+                    <span class="chip chip-sm">OWASP Juice Shop</span><span class="chip chip-sm">Docker</span><span class="chip chip-sm">ELK</span>
+                </div>
+                <p class="project-desc">A self-hosted SecOps lab simulating OWASP Top 10 attacks against Juice Shop, with detection rules built and mapped to MITRE ATT&CK as the attacks came in.</p>
+                <span class="project-link">View on GitHub <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a href="https://github.com/png270/iot-mitre-threat-mapping" class="project-card" data-category="ml">
+                <span class="project-cat cat-ml">ML / Network</span>
+                <h3>IDS for IoT Networks using ML</h3>
+                <div class="project-tech-row">
+                    <span class="chip chip-sm">Python</span><span class="chip chip-sm">Pandas</span><span class="chip chip-sm">NumPy</span><span class="chip chip-sm">PyTorch</span>
+                </div>
+                <p class="project-desc">An intrusion detection system classifying IoT attacks on the UNSW-NB15 dataset with LSTM, GNN, and logistic regression, mapped to MITRE ATT&CK TTPs for structured reporting. Multi-model consensus — only trusting a verdict when models agree — lifted classification confidence from 1.82% to 27.05%.</p>
+                <span class="project-link">View on GitHub<i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a href="https://github.com/png270/Swift-Vote" class="project-card" data-category="chain">
+                <span class="project-cat cat-chain">Blockchain</span>
+                <h3>SwiftVote — Blockchain Voting App</h3>
+                <div class="project-tech-row">
+                    <span class="chip chip-sm">Python</span><span class="chip chip-sm">Solidity</span><span class="chip chip-sm">SQL</span><span class="chip chip-sm">Django</span><span class="chip chip-sm">Docker</span><span class="chip chip-sm">Jenkins</span>
+                </div>
+                <p class="project-desc">A full-stack blockchain voting app: SHA-256 encryption, tamper-proof smart-contract vote recording, and secure auth with input validation, built end to end following SDLC principles.</p>
+                <span class="project-link">View on GitHub <i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="social-footer">
+        <a href="https://www.linkedin.com/in/siddhi-lad/" target="_blank" rel="noopener noreferrer" class="social-box"
+            aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/png270" target="_blank" rel="noopener noreferrer" class="social-box"
+            aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:siddhi.lad00@gmail.com" class="social-box" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </footer>
+
+    <script>
+        const filterChips = document.querySelectorAll('.filter-chip');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                filterChips.forEach(c => {
+                    c.classList.remove('is-active');
+                    c.setAttribute('aria-pressed', 'false');
+                });
+                chip.classList.add('is-active');
+                chip.setAttribute('aria-pressed', 'true');
+
+                const filter = chip.dataset.filter;
+                projectCards.forEach(card => {
+                    const matches = filter === 'all' || card.dataset.category === filter;
+                    card.style.display = matches ? 'flex' : 'none';
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
