@@ -17,7 +17,7 @@ body {
     padding: 40px 20px;
     
     /* COMMENT: Replace 'giphy.gif' with your actual space background GIF path */
-    background: url('/Users/siddhilad/Desktop/PortoBlogo/giphy.gif') no-repeat center center fixed;
+    background: url('../giphy.gif') no-repeat center center fixed;
     background-size: cover;
 }
 
