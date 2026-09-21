@@ -1,278 +1,508 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Me - Siddhi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="about-style.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="about-style.css" />
+    <link rel="stylesheet" href="../site.css" />
+  </head>
 
-<body>
-
+  <body>
     <main class="main-container">
-
-        <div class="navbar">
-            <nav>
-                <a href="../index.html">Home</a>
-                <a href="../projects/projects.html">Projects</a>
-                <a href="about.html" style="font-weight: bold;">About</a>
-            </nav>
+      <header class="window-bar">
+        <div class="window-controls" aria-label="Decorative window controls">
+          <button
+            type="button"
+            class="window-dot dot-red"
+            aria-label="Close (decorative)"
+          ></button
+          ><button
+            type="button"
+            class="window-dot dot-yellow"
+            aria-label="Minimize (decorative)"
+          ></button
+          ><button
+            type="button"
+            class="window-dot dot-green"
+            aria-label="Maximize (decorative)"
+          ></button>
         </div>
-
+        <nav class="window-menu" aria-label="Main navigation">
+          <a href="../index.html">Home</a
+          ><a href="../projects/projects.html">Projects</a
+          ><a href="../about/about.html" aria-current="page">About</a>
+        </nav>
+        <span class="window-title">breachy-270</span>
+      </header>
+      <div class="window-content">
         <div class="content-wrapper about-layout">
+          <section class="profile-column">
+            <div class="avatar-container">
+              <img src="profile.png" alt="Siddhi" class="profile-pic" />
+            </div>
 
-            <section class="profile-column">
-                <div class="avatar-container">
-                    <img src="profile.png" alt="Siddhi" class="profile-pic">
+            <div class="info-card">
+              <p>Download my resume?</p>
+              <a
+                href="my-resume.pdf"
+                download="Siddhi_Resume.pdf"
+                class="resume-btn-flash"
+              >
+                Resume <i class="fa-solid fa-download" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <div class="info-card2">
+              <p>Write-ups, projects & essays live on this blog.</p>
+            </div>
+          </section>
+
+          <section class="bio-column">
+            <h2 class="about-heading">About Me?</h2>
+
+            <p class="bio-text">
+              Hi there! I'm Siddhi. I'm a Security Engineer with over two years
+              of experience in web application security and automation. While I
+              may not be an "expert" yet, I keep experimenting, breaking and
+              fixing things for solutions yet to come. Breachy 270 is my blog, a
+              space for deep dives, experiments, and the occasional security
+              musings.
+            </p>
+
+            <div class="info-grid-flex">
+              <div class="info-column-left">
+                <div class="info-block block-purple">
+                  <h3>
+                    <span class="block-tag"
+                      ><i
+                        class="fa-solid fa-graduation-cap"
+                        aria-hidden="true"
+                      ></i>
+                      Education</span
+                    >
+                  </h3>
+                  <div class="org-row">
+                    <img
+                      src="logo/pennstate.png"
+                      alt="Penn State University logo"
+                      class="org-logo"
+                    />
+                    <p>
+                      <i>MS Cybersecurity</i><b>@ Penn State University '26</b>
+                    </p>
+                  </div>
+                  <div class="org-row">
+                    <img
+                      src="logo/nu.png"
+                      alt="NIIT University logo"
+                      class="org-logo"
+                    />
+                    <p>
+                      <i>B.Tech Computer Science </i>
+                      <b>@ NIIT University '22</b>
+                    </p>
+                  </div>
                 </div>
 
-                <div class="info-card">
-                    <p>Download my resume?</p>
-                    <a href="my-resume.pdf" download="Siddhi_Resume.pdf" class="resume-btn-flash">
-                        Resume <i class="fa-solid fa-download"></i>
+                <div class="info-block block-green">
+                  <h3>
+                    <span class="block-tag"
+                      ><i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+                      Work Experience</span
+                    >
+                  </h3>
+
+                  <div class="exp-entry">
+                    <h4>
+                      <img
+                        src="logo/bsm.jpeg"
+                        alt="BSM logo"
+                        class="org-logo"
+                      />BSM<span class="exp-meta"
+                        >Internship | Jun - Aug '25 | Maritime</span
+                      >
+                    </h4>
+                    <ul class="exp-list">
+                      <li>
+                        Built a Python + Streamlit tool that parses Watchguard
+                        firewall XML configs, cutting drift-audit time.
+                      </li>
+                      <li>
+                        Prototyped remote device monitoring: Ansible (via WSL) +
+                        PowerShell baseline-deviation alerts.
+                      </li>
+                      <li>
+                        Triaged a ransomware-infected Windows host for IOCs.
+                      </li>
+                      <li>
+                        Pitched an improved IR workflow to the CISO for tighter
+                        vendor collaboration.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="exp-entry">
+                    <h6>
+                      <img
+                        src="logo/ibm.png"
+                        alt="IBM logo"
+                        class="org-logo"
+                      />IBM
+                      <span class="exp-meta"
+                        >Full-Time | Jan '22 - May '24 | Healthcare</span
+                      >
+                    </h6>
+                    <ul class="exp-list">
+                      <li>
+                        Started in network security; automated firewall-upgrade
+                        validation in Python.
+                      </li>
+                      <li>Managed Imperva Cloud WAF for an MSSP client.</li>
+                      <li>
+                        Resolved incidents, wrote custom detection rules,
+                        rotated SSL certs, enforced RBAC.
+                      </li>
+                      <li>
+                        Turned messy ops into structured, repeatable procedure.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="info-block block-red">
+                  <h3>
+                    <span class="block-tag"
+                      ><i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                      Competitions & Volunteering</span
+                    >
+                  </h3>
+
+                  <div class="comp-row">
+                    <span class="comp-badge badge-neutral">Volunteer</span>
+                    <div class="comp-text">
+                      <h6>
+                        The Diana Initiative (TDI)
+                        <span class="exp-meta">May 2026</span>
+                      </h6>
+                      <p>Directed attendees to resources in the Speaker Room</p>
+                    </div>
+                  </div>
+
+                  <div class="comp-row">
+                    <span class="comp-badge badge-gold">4th / 10</span>
+                    <div class="comp-text">
+                      <h6>Wicked6 <span class="exp-meta">Mar 2026</span></h6>
+                      <p>
+                        Exploit scripts in Python — popped a Go SSH service, a
+                        PHP type-juggling bug, and a buffer overflow
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="comp-row">
+                    <span class="comp-badge badge-gold">Top 10</span>
+                    <div class="comp-text">
+                      <h6>
+                        Hack The Box — Red &amp; Blue CTF
+                        <span class="exp-meta">Mar 2026</span>
+                      </h6>
+                      <p>SQLi, XSS, PCAP analysis, email header forensics</p>
+                    </div>
+                  </div>
+
+                  <div class="comp-row">
+                    <span class="comp-badge badge-win">1st / 4</span>
+                    <div class="comp-text">
+                      <h6>
+                        Blue Team — Pros vs Joes, BSides NYC
+                        <span class="exp-meta">Oct 2025</span>
+                      </h6>
+                      <p>
+                        Defended Windows endpoints &amp; Active Directory
+                        through a live red-team attack
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="comp-row">
+                    <span class="comp-badge badge-gold">Top 33%</span>
+                    <div class="comp-text">
+                      <h6>CTF @ CIT <span class="exp-meta">Apr 2025</span></h6>
+                      <p>OSINT, crypto, web exploitation, network forensics</p>
+                    </div>
+                  </div>
+
+                  <div class="comp-row">
+                    <span class="comp-badge badge-gold">Top 5</span>
+                    <div class="comp-text">
+                      <h6>
+                        NCAE Cyber Games <span class="exp-meta">Feb 2025</span>
+                      </h6>
+                      <p>
+                        Kept nginx alive under live fire while solving
+                        web/crypto/forensics challenges
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="comp-row">
+                    <span class="comp-badge badge-win">Winner</span>
+                    <div class="comp-text">
+                      <h6>
+                        Smart India Hackathon
+                        <span class="exp-meta">Jan 2020</span>
+                      </h6>
+                      <p>
+                        ML-driven crop procurement app + site, pitched to the
+                        Govt. of Bihar
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="comp-row">
+                    <span class="comp-badge badge-gold">2nd Place</span>
+                    <div class="comp-text">
+                      <h6>
+                        Smart India Hackathon
+                        <span class="exp-meta">Jan 2019</span>
+                      </h6>
+                      <p>
+                        AR shopping app for Pepperfry with team SpaghettiCoders
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-column-right">
+                <div class="info-block block-yellow">
+                  <h3>
+                    <span class="block-tag"
+                      ><i
+                        class="fa-solid fa-screwdriver-wrench"
+                        aria-hidden="true"
+                      ></i>
+                      Tech Stack</span
+                    >
+                  </h3>
+
+                  <div class="chip-group">
+                    <span class="chip-label">Programming</span>
+                    <div class="chip-row">
+                      <span class="chip">Python</span
+                      ><span class="chip">C/C++</span
+                      ><span class="chip">Go</span
+                      ><span class="chip">PowerShell</span
+                      ><span class="chip">Bash</span>
+                    </div>
+                  </div>
+                  <div class="chip-group">
+                    <span class="chip-label">Web</span>
+                    <div class="chip-row">
+                      <span class="chip">HTML/CSS</span
+                      ><span class="chip">Bootstrap</span
+                      ><span class="chip">JS/TS</span
+                      ><span class="chip">Django</span
+                      ><span class="chip">Angular</span>
+                    </div>
+                  </div>
+                  <div class="chip-group">
+                    <span class="chip-label">OS</span>
+                    <div class="chip-row">
+                      <span class="chip">Windows</span
+                      ><span class="chip">Linux (Ubuntu, Kali)</span>
+                    </div>
+                  </div>
+                  <div class="chip-group">
+                    <span class="chip-label">CI/CD</span>
+                    <div class="chip-row">
+                      <span class="chip">Git</span
+                      ><span class="chip">GitHub Actions</span
+                      ><span class="chip">Jenkins</span
+                      ><span class="chip">Docker</span
+                      ><span class="chip">Kubernetes</span
+                      ><span class="chip">Terraform</span
+                      ><span class="chip">Ansible</span
+                      ><span class="chip">AWS</span>
+                    </div>
+                  </div>
+                  <div class="chip-group">
+                    <span class="chip-label">Firewalls / SIEM</span>
+                    <div class="chip-row">
+                      <span class="chip">Cisco ASA</span
+                      ><span class="chip">Imperva WAF</span
+                      ><span class="chip">Splunk</span
+                      ><span class="chip">ELK</span
+                      ><span class="chip">Wazuh</span>
+                    </div>
+                  </div>
+                  <div class="chip-group">
+                    <span class="chip-label">Security Toolkit</span>
+                    <div class="chip-row">
+                      <span class="chip">Metasploit</span
+                      ><span class="chip">nmap</span
+                      ><span class="chip">Burp Suite</span
+                      ><span class="chip">OWASP ZAP</span
+                      ><span class="chip">Ghidra</span
+                      ><span class="chip">IDA Pro</span
+                      ><span class="chip">x64dbg</span
+                      ><span class="chip">Zeek</span
+                      ><span class="chip">iptables</span>
+                    </div>
+                  </div>
+                  <div class="chip-group">
+                    <span class="chip-label">Certifications</span>
+                    <div class="chip-row">
+                      <span class="chip">Security+</span
+                      ><span class="chip">AWS CCP</span
+                      ><span class="chip">CEH v11</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-block block-orange">
+                  <h3>
+                    <span class="block-tag"
+                      ><i
+                        class="fa-solid fa-folder-open"
+                        aria-hidden="true"
+                      ></i>
+                      Projects</span
+                    >
+                  </h3>
+
+                  <div class="project-stack-container">
+                    <a
+                      href="../projects/Final_Paper.pdf"
+                      class="project-list-card"
+                    >
+                      <h6>Cascading Risks in Open-Banking APIs</h6>
+                      <div class="project-tech-row">
+                        <span class="chip chip-sm">FastAPI</span
+                        ><span class="chip chip-sm">Kong</span
+                        ><span class="chip chip-sm">Keycloak</span
+                        ><span class="chip chip-sm">ELK</span
+                        ><span class="chip chip-sm">PostgreSQL</span
+                        ><span class="chip chip-sm">Docker</span>
+                      </div>
+                      <p class="project-desc">
+                        Containerized microservices testbed modeling systemic
+                        risk in Open Banking. Applied STRIDE threat modeling and
+                        simulated API exploits to validate controls.
+                      </p>
                     </a>
+
+                    <a
+                      href="https://github.com/png270/noshell"
+                      class="project-list-card"
+                    >
+                      <h6>NoShell</h6>
+                      <div class="project-tech-row">
+                        <span class="chip chip-sm">Go</span>
+                      </div>
+                      <p class="project-desc">
+                        A Linux-style CLI in Go that does nothing — powered by
+                        No-as-a-Service (NaaS).
+                      </p>
+                    </a>
+
+                    <a
+                      href="https://github.com/png270/secops-lab"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="project-list-card"
+                    >
+                      <h6>SecOps Lab</h6>
+                      <div class="project-tech-row">
+                        <span class="chip chip-sm">OWASP Juice Shop</span
+                        ><span class="chip chip-sm">Docker</span
+                        ><span class="chip chip-sm">ELK</span>
+                      </div>
+                      <p class="project-desc">
+                        Simulated OWASP Top 10 attacks against Juice Shop and
+                        built detection rules mapped to MITRE ATT&CK.
+                      </p>
+                    </a>
+
+                    <a
+                      href="https://github.com/png270/iot-mitre-threat-mapping"
+                      class="project-list-card"
+                    >
+                      <h6>IDS for IoT Networks using ML</h6>
+                      <div class="project-tech-row">
+                        <span class="chip chip-sm">Python</span
+                        ><span class="chip chip-sm">Pandas</span
+                        ><span class="chip chip-sm">NumPy</span
+                        ><span class="chip chip-sm">PyTorch</span>
+                      </div>
+                      <p class="project-desc">
+                        LSTM / GNN / Logistic Regression IDS trained on
+                        UNSW-NB15, mapped to MITRE ATT&CK TTPs. Multi-model
+                        consensus lifted classification confidence from 1.82% to
+                        27.05% on agreement.
+                      </p>
+                    </a>
+
+                    <a
+                      href="https://github.com/png270/Swift-Vote"
+                      class="project-list-card"
+                    >
+                      <h6>SwiftVote — Blockchain Voting App</h6>
+                      <div class="project-tech-row">
+                        <span class="chip chip-sm">Python</span
+                        ><span class="chip chip-sm">Solidity</span
+                        ><span class="chip chip-sm">SQL</span
+                        ><span class="chip chip-sm">Django</span
+                        ><span class="chip chip-sm">Docker</span
+                        ><span class="chip chip-sm">Jenkins</span>
+                      </div>
+                      <p class="project-desc">
+                        SHA-256 encryption, tamper-proof smart-contract vote
+                        recording, and secure auth with input validation.
+                      </p>
+                    </a>
+                  </div>
                 </div>
-
-                <div class="info-card2">
-                    <p>Write-ups, projects & essays live on this blog.</p>
-                    
-                </div>
-            </section>
-
-            <section class="bio-column">
-                <h2 class="about-heading">About Me?</h2>
-
-                <p class="bio-text">
-                     Hi there! I'm Siddhi. I'm a Security Engineer with over two years of experience in web application security and automation. While I may not be an "expert" yet, I keep experimenting, breaking and fixing things for solutions yet to come. Breachy 270 is my blog, a space for deep dives, experiments, and the occasional security musings.
-                </p>
-
-                <div class="info-grid-flex">
-                    <div class="info-column-left">
-
-                        <div class="info-block block-purple">
-                            <h3><span class="block-tag"><i class="fa-solid fa-graduation-cap"></i> Education</span></h3>
-                            <div class="org-row">
-                                <img src="logo/pennstate.png" alt="Penn State University logo" class="org-logo">
-                                <p> <i>MS Cybersecurity</i><b>@ Penn State University '26</b></p>
-                            </div>
-                            <div class="org-row">
-                                <img src="logo/nu.png" alt="NIIT University logo" class="org-logo">
-                                <p><i>B.Tech Computer Science </i> <b>@ NIIT University '22</b></p>
-                            </div>
-                        </div>
-
-                        <div class="info-block block-green">
-                            <h3><span class="block-tag"><i class="fa-solid fa-briefcase"></i> Work Experience</span></h3>
-
-                            <div class="exp-entry">
-                                <h4><img src="logo/bsm.jpeg" alt="BSM logo" class="org-logo">BSM<span class="exp-meta">Internship | Jun - Aug '25 | Maritime</span></h4>
-                                <ul class="exp-list">
-                                    <li>Built a Python + Streamlit tool that parses Watchguard firewall XML configs, cutting drift-audit time.</li>
-                                    <li>Prototyped remote device monitoring: Ansible (via WSL) + PowerShell baseline-deviation alerts.</li>
-                                    <li>Triaged a ransomware-infected Windows host for IOCs.</li>
-                                    <li>Pitched an improved IR workflow to the CISO for tighter vendor collaboration.</li>
-                                </ul>
-                            </div>
-
-                            <div class="exp-entry">
-                                <h6><img src="logo/ibm.png" alt="IBM logo" class="org-logo">IBM <span class="exp-meta">Full-Time | Jan '22 - May '24 | Healthcare</span></h6>
-                                <ul class="exp-list">
-                                    <li>Started in network security; automated firewall-upgrade validation in Python.</li>
-                                    <li>Managed Imperva Cloud WAF for an MSSP client.</li>
-                                    <li>Resolved incidents, wrote custom detection rules, rotated SSL certs, enforced RBAC.</li>
-                                    <li>Turned messy ops into structured, repeatable procedure.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="info-block block-red">
-                            <h3><span class="block-tag"><i class="fa-solid fa-trophy"></i> Competitions & Volunteering</span></h3>
-
-                            <div class="comp-row">
-                                <span class="comp-badge badge-neutral">Volunteer</span>
-                                <div class="comp-text">
-                                    <h6>The Diana Initiative (TDI) <span class="exp-meta">May 2026</span></h6>
-                                    <p>Directed attendees to resources in the Speaker Room</p>
-                                </div>
-                            </div>
-
-                            <div class="comp-row">
-                                <span class="comp-badge badge-gold">4th / 10</span>
-                                <div class="comp-text">
-                                    <h6>Wicked6 <span class="exp-meta">Mar 2026</span></h6>
-                                    <p>Exploit scripts in Python — popped a Go SSH service, a PHP type-juggling bug, and a buffer overflow</p>
-                                </div>
-                            </div>
-
-                            <div class="comp-row">
-                                <span class="comp-badge badge-gold">Top 10</span>
-                                <div class="comp-text">
-                                    <h6>Hack The Box — Red &amp; Blue CTF <span class="exp-meta">Mar 2026</span></h6>
-                                    <p>SQLi, XSS, PCAP analysis, email header forensics</p>
-                                </div>
-                            </div>
-
-                            <div class="comp-row">
-                                <span class="comp-badge badge-win">1st / 4</span>
-                                <div class="comp-text">
-                                    <h6>Blue Team — Pros vs Joes, BSides NYC <span class="exp-meta">Oct 2025</span></h6>
-                                    <p>Defended Windows endpoints &amp; Active Directory through a live red-team attack</p>
-                                </div>
-                            </div>
-
-                            <div class="comp-row">
-                                <span class="comp-badge badge-gold">Top 33%</span>
-                                <div class="comp-text">
-                                    <h6>CTF @ CIT <span class="exp-meta">Apr 2025</span></h6>
-                                    <p>OSINT, crypto, web exploitation, network forensics</p>
-                                </div>
-                            </div>
-
-                            <div class="comp-row">
-                                <span class="comp-badge badge-gold">Top 5</span>
-                                <div class="comp-text">
-                                    <h6>NCAE Cyber Games <span class="exp-meta">Feb 2025</span></h6>
-                                    <p>Kept nginx alive under live fire while solving web/crypto/forensics challenges</p>
-                                </div>
-                            </div>
-
-                            <div class="comp-row">
-                                <span class="comp-badge badge-win">Winner</span>
-                                <div class="comp-text">
-                                    <h6>Smart India Hackathon <span class="exp-meta">Jan 2020</span></h6>
-                                    <p>ML-driven crop procurement app + site, pitched to the Govt. of Bihar</p>
-                                </div>
-                            </div>
-
-                            <div class="comp-row">
-                                <span class="comp-badge badge-gold">2nd Place</span>
-                                <div class="comp-text">
-                                    <h6>Smart India Hackathon <span class="exp-meta">Jan 2019</span></h6>
-                                    <p>AR shopping app for Pepperfry with team SpaghettiCoders</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="info-column-right">
-                        <div class="info-block block-yellow">
-                            <h3><span class="block-tag"><i class="fa-solid fa-screwdriver-wrench"></i> Tech Stack</span></h3>
-
-                            <div class="chip-group">
-                                <span class="chip-label">Programming</span>
-                                <div class="chip-row">
-                                    <span class="chip">Python</span><span class="chip">C/C++</span><span class="chip">Go</span><span class="chip">PowerShell</span><span class="chip">Bash</span>
-                                </div>
-                            </div>
-                            <div class="chip-group">
-                                <span class="chip-label">Web</span>
-                                <div class="chip-row">
-                                    <span class="chip">HTML/CSS</span><span class="chip">Bootstrap</span><span class="chip">JS/TS</span><span class="chip">Django</span><span class="chip">Angular</span>
-                                </div>
-                            </div>
-                            <div class="chip-group">
-                                <span class="chip-label">OS</span>
-                                <div class="chip-row">
-                                    <span class="chip">Windows</span><span class="chip">Linux (Ubuntu, Kali)</span>
-                                </div>
-                            </div>
-                            <div class="chip-group">
-                                <span class="chip-label">CI/CD</span>
-                                <div class="chip-row">
-                                    <span class="chip">Git</span><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Terraform</span><span class="chip">Ansible</span><span class="chip">AWS</span>
-                                </div>
-                            </div>
-                            <div class="chip-group">
-                                <span class="chip-label">Firewalls / SIEM</span>
-                                <div class="chip-row">
-                                    <span class="chip">Cisco ASA</span><span class="chip">Imperva WAF</span><span class="chip">Splunk</span><span class="chip">ELK</span><span class="chip">Wazuh</span>
-                                </div>
-                            </div>
-                            <div class="chip-group">
-                                <span class="chip-label">Security Toolkit</span>
-                                <div class="chip-row">
-                                    <span class="chip">Metasploit</span><span class="chip">nmap</span><span class="chip">Burp Suite</span><span class="chip">OWASP ZAP</span><span class="chip">Ghidra</span><span class="chip">IDA Pro</span><span class="chip">x64dbg</span><span class="chip">Zeek</span><span class="chip">iptables</span>
-                                </div>
-                            </div>
-                            <div class="chip-group">
-                                <span class="chip-label">Certifications</span>
-                                <div class="chip-row">
-                                    <span class="chip">Security+</span><span class="chip">AWS CCP</span><span class="chip">CEH v11</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="info-block block-orange">
-                            <h3><span class="block-tag"><i class="fa-solid fa-folder-open"></i> Projects</span></h3>
-
-                            <div class="project-stack-container">
-
-                                <a href="../projects/Final_Paper.pdf" class="project-list-card">
-                                    <h6>Cascading Risks in Open-Banking APIs</h6>
-                                    <div class="project-tech-row">
-                                        <span class="chip chip-sm">FastAPI</span><span class="chip chip-sm">Kong</span><span class="chip chip-sm">Keycloak</span><span class="chip chip-sm">ELK</span><span class="chip chip-sm">PostgreSQL</span><span class="chip chip-sm">Docker</span>
-                                    </div>
-                                    <p class="project-desc">Containerized microservices testbed modeling systemic risk in Open Banking. Applied STRIDE threat modeling and simulated API exploits to validate controls.</p>
-                                </a>
-
-                                <a href="https://github.com/png270/noshell" class="project-list-card">
-                                    <h6>NoShell</h6>
-                                    <div class="project-tech-row">
-                                        <span class="chip chip-sm">Go</span>
-                                    </div>
-                                    <p class="project-desc">A Linux-style CLI in Go that does nothing — powered by No-as-a-Service (NaaS).</p>
-                                </a>
-
-                                <a href="https://github.com/png270/secops-lab" target="_blank" class="project-list-card">
-                                    <h6>SecOps Lab</h6>
-                                    <div class="project-tech-row">
-                                        <span class="chip chip-sm">OWASP Juice Shop</span><span class="chip chip-sm">Docker</span><span class="chip chip-sm">ELK</span>
-                                    </div>
-                                    <p class="project-desc">Simulated OWASP Top 10 attacks against Juice Shop and built detection rules mapped to MITRE ATT&CK.</p>
-                                </a>
-
-                                <a href="https://github.com/png270/iot-mitre-threat-mapping" class="project-list-card">
-                                    <h6>IDS for IoT Networks using ML</h6>
-                                    <div class="project-tech-row">
-                                        <span class="chip chip-sm">Python</span><span class="chip chip-sm">Pandas</span><span class="chip chip-sm">NumPy</span><span class="chip chip-sm">PyTorch</span>
-                                    </div>
-                                    <p class="project-desc">LSTM / GNN / Logistic Regression IDS trained on UNSW-NB15, mapped to MITRE ATT&CK TTPs. Multi-model consensus lifted classification confidence from 1.82% to 27.05% on agreement.</p>
-                                </a>
-
-                                <a href="https://github.com/png270/Swift-Vote" class="project-list-card">
-                                    <h6>SwiftVote — Blockchain Voting App</h6>
-                                    <div class="project-tech-row">
-                                        <span class="chip chip-sm">Python</span><span class="chip chip-sm">Solidity</span><span class="chip chip-sm">SQL</span><span class="chip chip-sm">Django</span><span class="chip chip-sm">Docker</span><span class="chip chip-sm">Jenkins</span>
-                                    </div>
-                                    <p class="project-desc">SHA-256 encryption, tamper-proof smart-contract vote recording, and secure auth with input validation.</p>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+              </div>
+            </div>
+          </section>
         </div>
+      </div>
     </main>
 
-    <footer class="social-footer">
-        <a href="https://www.linkedin.com/in/siddhi-lad/" target="_blank" rel="noopener noreferrer" class="social-box"
-            aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/png270" target="_blank" rel="noopener noreferrer" class="social-box"
-            aria-label="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:siddhi.lad00@gmail.com" class="social-box" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-        </a>
+    <footer class="social-footer" aria-label="Social links">
+      <a
+        href="https://www.linkedin.com/in/siddhi-lad/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-box"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+      <a
+        href="https://github.com/png270"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-box"
+        aria-label="GitHub"
+      >
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      <a
+        href="mailto:siddhi.lad00@gmail.com"
+        class="social-box"
+        aria-label="Email"
+      >
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+      </a>
     </footer>
 
-</body>
-
+    <script src="../site.js" defer></script>
+  </body>
 </html>

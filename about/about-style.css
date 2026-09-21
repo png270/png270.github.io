@@ -1,114 +1,5 @@
-/* ==========================================================================
-   1. Reset and Base Styles (From Your Homepage)
-   ========================================================================== */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 14px;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 40px 20px;
-    
-    /* COMMENT: Replace 'giphy.gif' with your actual GIF filename below */
-    background: url('../giphy.gif') no-repeat center center fixed;
-    background-size: cover;
-}
-
-/* ==========================================================================
-   2. Main White Container & Custom Scrollbar (Uniform Size & Behavior)
-   ========================================================================== */
-.main-container {
-    background-color: #ffffff;
-    width: 100%;
-    max-width: 1000px;
-    height: 80vh; /* Fixed height to force internal scrolling */
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding: 40px 50px;
-    
-    /* Custom Scrollbar configuration for the white region */
-    overflow-y: scroll;
-}
-
-/* Custom Scrollbar styling matching the grey bar */
-.main-container::-webkit-scrollbar {
-    width: 12px;
-}
-
-.main-container::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.main-container::-webkit-scrollbar-thumb {
-    background-color: #d1d1d6; 
-    border-radius: 0px;
-}
-
-/* ==========================================================================
-   3. Shared Navbar Elements
-   ========================================================================== */
-.navbar {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-}
-
-.navbar nav a {
-    color: #000;
-    text-decoration: underline;
-    margin-left: 25px;
-    font-size: 1.1rem;
-}
-
-/* Base structural layout split for the columns */
-.content-wrapper {
-    display: grid;
-    /* Left column stays exactly 220px, right column fills the rest */
-    grid-template-columns: 220px 1fr; 
-    gap: 40px;
-    padding: 0px;
-}
-
-/* ==========================================================================
-   4. Fixed Sidebar Layout for Social Icons (Locked on Space Background)
-   ========================================================================== */
-.social-footer {
-    display: flex;
-    flex-direction: column; 
-   
-}
-
-.social-box {
-    width: 45px;
-    height: 45px;
-    border: 2px solid #000;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: all 0.2s ease;
-}
-
-.social-box:hover {
-    background-color: #000;
-    color: #fff;
-}
-
-/* ==========================================================================
-   5. About Me Page Specific Styles (Left & Right Columns)
-   ========================================================================== */
-
+.content-wrapper { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 35px; }
+h4, h6 { font-size: 1rem; }
 /* Left Profile Column */
 .profile-column {
     display: flex;
@@ -587,11 +478,6 @@ body {
    7. Responsive Breakdowns for Tablet/Mobile Views
    ========================================================================== */
 @media (max-width: 768px) {
-    .main-container {
-        height: auto;
-        overflow-y: visible;
-        padding: 30px 20px;
-    }
     
     .content-wrapper {
         grid-template-columns: 1fr;
@@ -615,13 +501,6 @@ body {
     }
     
     /* Drop the social icons back to a bottom row when side space is limited */
-    .social-footer {
-        position: static;
-        flex-direction: row;
-        transform: none;
-        margin: 20px auto 0 auto;
-        justify-content: center;
-    }
 }
 
 /* ==========================================================================
@@ -661,3 +540,5 @@ body {
         box-shadow: 4px 4px 0px #bfa1f2; /* Drop shadow pop */
     }
 }
+
+@media (max-width: 1000px) { .info-grid-flex { flex-direction: column; } }

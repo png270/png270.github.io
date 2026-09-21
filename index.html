@@ -1,105 +1,474 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Breachy-270</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="home-style.css">
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="home-style.css" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body class="home-page">
     <main class="main-container">
-        
-        <header class="navbar">
-            <nav>
-                <a href="index.html" style="font-weight: bold;">Home</a>
-                <a href="./projects/projects.html">Projects</a>
-                <a href="./about/about.html">About</a>
-            </nav>
-        </header>
-
-        <div class="content-wrapper">
-            
-            <section class="left-col">
-                <div class="logo-container">
-                    <h1 class="logo-text">Breachy-270</h1>
-                </div>
-                
-                <p class="tagline">Takes from a shelf with shaky stability because change is the only constant.</p>
-                
-                <div class="carousel-container">
-                    <img id="carousel-img" src="images/1.jpeg" alt="Picture from my gallery">
-                    
-                    <div class="carousel-controls">
-                        <p><span style="background-color: #bffcff; color: #000; padding: 2px 6px;">Just some pictures from my gallery.</span></p>
-                        <button id="prev-btn" aria-label="Previous image">&lt;</button>
-                        <button id="next-btn" aria-label="Next image">&gt;</button>
-                    </div>
-                </div>
-            </section>
-
-            <section class="right-col">
-                <h2 class="year-heading">From The Archives</h2>
-                
-                <ul class="article-list">
-                    <li><a href="./writeup/essay1.html">The Graden of Forking Paths Vs. An Onion</a></li>
-                    <li><a href="./writeup/ctf-writeup.html">Sisterhood of the Traveling Packets CTF - Write-Up</a></li>
-                    <li><a href="./writeup/code-review.html">How to catch bugs online (fast)?</a></li>
-                </ul>
-            </section>
-            
+      <header class="window-bar">
+        <div class="window-controls" aria-label="Decorative window controls">
+          <button
+            type="button"
+            class="window-dot dot-red"
+            aria-label="Close (decorative)"
+          ></button
+          ><button
+            type="button"
+            class="window-dot dot-yellow"
+            aria-label="Minimize (decorative)"
+          ></button
+          ><button
+            type="button"
+            class="window-dot dot-green"
+            aria-label="Maximize (decorative)"
+          ></button>
         </div>
+        <nav class="window-menu" aria-label="Main navigation">
+          <a href="index.html" aria-current="page">Home</a
+          ><a href="projects/projects.html">Projects</a
+          ><a href="about/about.html">About</a>
+        </nav>
+        <span class="window-title">breachy-270</span>
+      </header>
+      <div class="window-content">
+        <div class="content-wrapper">
+          <section class="left-col">
+            <div class="logo-container">
+              <h1 class="logo-text">Breachy-270</h1>
+            </div>
 
+            <p class="tagline">
+              Takes from a shelf with shaky stability because change is the only
+              constant.
+            </p>
 
+            <div class="gallery">
+              <div class="postcard-stack">
+                <button
+                  type="button"
+                  class="postcard"
+                  id="postcard"
+                  aria-label="Postcard 1 of 21. Show next postcard."
+                  aria-describedby="gallery-hint"
+                >
+                  <img
+                    class="postcard-photo"
+                    id="carousel-img"
+                    src="images/1.jpeg"
+                    alt="Picture 1 from my gallery"
+                    draggable="false"
+                  />
+                  <span class="postcard-caption"
+                    ><span class="postcard-message"
+                      ><strong>A little piece of here.</strong
+                      ><small>From my gallery, with love</small></span
+                    ><span class="postcard-stamp" aria-hidden="true"
+                      ><span class="stamp-star">✦</span
+                      ><span class="stamp-word">POST</span></span
+                    ></span
+                  >
+                </button>
+              </div>
+              <div class="gallery-footer">
+                <span class="gallery-hint" id="gallery-hint"
+                  >Click for the next postcard ↗</span
+                ><span
+                  class="gallery-count"
+                  id="gallery-count"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  >01 / 21</span
+                >
+              </div>
+            </div>
+          </section>
+
+          <section class="right-col">
+            <h2 class="year-heading">From The Archives</h2>
+
+            <ul class="article-list">
+              <li>
+                <a href="./writeup/essay1.html"
+                  >The Garden of Forking Paths Vs. An Onion</a
+                >
+              </li>
+              <li>
+                <a href="./writeup/ctf-writeup.html"
+                  >Sisterhood of the Traveling Packets CTF - Write-Up</a
+                >
+              </li>
+              <li>
+                <a href="./writeup/code-review.html"
+                  >How to catch bugs online (fast)?</a
+                >
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
     </main>
 
-    <footer class="social-footer">
-        <a href="https://www.linkedin.com/in/siddhi-lad/" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/png270" target="_blank" rel="noopener noreferrer" class="social-box" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:siddhi.lad00@gmail.com" class="social-box" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-        </a>
+    <footer class="social-footer" aria-label="Social links">
+      <a
+        href="https://www.linkedin.com/in/siddhi-lad/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-box"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+      <a
+        href="https://github.com/png270"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-box"
+        aria-label="GitHub"
+      >
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      <a
+        href="mailto:siddhi.lad00@gmail.com"
+        class="social-box"
+        aria-label="Email"
+      >
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+      </a>
     </footer>
 
+    <button
+      type="button"
+      class="books-launcher"
+      id="open-reading"
+      aria-label="Open my reading list"
+      aria-haspopup="dialog"
+      aria-controls="reading-dialog"
+      aria-expanded="false"
+    >
+      <span class="book-stack" aria-hidden="true"
+        ><span class="stack-book stack-book-bottom"></span
+        ><span class="stack-book stack-book-middle"></span
+        ><span class="stack-book stack-book-top"></span
+      ></span>
+      <span class="launcher-label">my bookshelf ↗</span>
+    </button>
+    <dialog
+      class="reading-dialog"
+      id="reading-dialog"
+      aria-labelledby="reading-title"
+    >
+      <div class="notes-toolbar">
+        <div class="window-controls">
+          <button
+            type="button"
+            class="window-dot dot-red"
+            id="close-reading"
+            aria-label="Close reading list"
+            autofocus
+          ></button>
+          <button
+            type="button"
+            class="window-dot dot-yellow"
+            aria-label="Minimize (decorative)"
+          ></button>
+          <button
+            type="button"
+            class="window-dot dot-green"
+            aria-label="Maximize (decorative)"
+          ></button>
+        </div>
+        <span class="notes-toolbar-title">Notes</span
+        ><span class="notes-icon" aria-hidden="true">▤</span>
+      </div>
+      <div
+        class="notes-paper"
+        tabindex="0"
+        role="region"
+        aria-label="Currently reading and books grouped by year"
+      >
+        <p class="note-eyebrow">A little collection</p>
+        <h2 id="reading-title">On my shelf</h2>
+        <p class="note-intro">
+          Things I've read. Things I'm halfway through.<br />A few more
+          perspectives to shake the shelf.
+        </p>
+        <!-- Edit the book entries below to update your shelf. -->
+        <section class="reading-year" aria-labelledby="currently-reading">
+          <h3 id="currently-reading">Currently reading</h3>
+          <div class="reading-group currently-reading">
+            <ul class="notes-book-list">
+              <li>
+                <span class="book-title">Acts of God</span
+                ><span class="book-author">Kanan Gill</span>
+              </li>
+              <li>
+                <span class="book-title">The Education of Yuri</span
+                ><span class="book-author">Jerry Pinto</span>
+              </li>
+              <li>
+                <span class="book-title">The Stream of Life</span
+                ><span class="book-author">Clarice Lispector</span>
+              </li>
+              <li>
+                <span class="book-title">Butter</span
+                ><span class="book-author">Asako Yuzuki</span>
+              </li>
+              <li>
+                <span class="book-title">Devotions</span
+                ><span class="book-author">Mary Oliver</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="reading-year" aria-labelledby="year-2026">
+          <h3 id="year-2026">2026</h3>
+          <div class="reading-group finished-reading">
+            <h4>Finished</h4>
+            <ul class="notes-book-list">
+              <li>
+                <span class="book-title"
+                  >Drive Your Plow Over the Bones of the Dead</span
+                ><span class="book-author">Olga Tokarczuk</span>
+              </li>
+              <li>
+                <span class="book-title">Even If You Beat Me</span
+                ><span class="book-author">Sally Rooney</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="reading-year" aria-labelledby="year-2025">
+          <h3 id="year-2025">2025</h3>
+          <div class="reading-group finished-reading">
+            <h4>Finished</h4>
+            <ul class="notes-book-list">
+              <li>
+                <span class="book-title">Upstream</span
+                ><span class="book-author">Mary Oliver</span>
+              </li>
+              <li>
+                <span class="book-title">The Stranger</span
+                ><span class="book-author">Albert Camus</span>
+              </li>
+              <li>
+                <span class="book-title">Ghachar Ghochar</span
+                ><span class="book-author">Vivek Shanbhag</span>
+              </li>
+              <li>
+                <span class="book-title">Kitchen</span
+                ><span class="book-author">Banana Yoshimoto</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="reading-year" aria-labelledby="year-2024">
+          <h3 id="year-2024">2024</h3>
+          <div class="reading-group finished-reading">
+            <h4>Finished</h4>
+            <ul class="notes-book-list">
+              <li>
+                <span class="book-title">How to Build a Car</span
+                ><span class="book-author">Adrian Newey</span>
+              </li>
+              <li>
+                <span class="book-title">Anxious People</span
+                ><span class="book-author">Fredrik Backman</span>
+              </li>
+              <li>
+                <span class="book-title">Memory Man</span
+                ><span class="book-author">David Baldacci</span>
+              </li>
+              <li>
+                <span class="book-title">My Year of Rest and Relaxation</span
+                ><span class="book-author">Ottessa Moshfegh</span>
+              </li>
+              <li>
+                <span class="book-title">Embroideries</span
+                ><span class="book-author">Marjane Satrapi</span>
+              </li>
+              <li>
+                <span class="book-title">Men Explain Things to Me</span
+                ><span class="book-author">Rebecca Solnit</span>
+              </li>
+              <li>
+                <span class="book-title">The God of Small Things</span
+                ><span class="book-author">Arundhati Roy</span>
+              </li>
+              <li>
+                <span class="book-title"
+                  >Only Dull People Are Brilliant at Breakfast</span
+                ><span class="book-author">Oscar Wilde</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="reading-year" aria-labelledby="year-2023">
+          <h3 id="year-2023">2023</h3>
+          <div class="reading-group finished-reading">
+            <h4>Finished</h4>
+            <ul class="notes-book-list">
+              <li>
+                <span class="book-title">The Midnight Library</span
+                ><span class="book-author">Matt Haig</span>
+              </li>
+              <li>
+                <span class="book-title"
+                  >What I Talk About When I Talk About Running</span
+                ><span class="book-author">Haruki Murakami</span>
+              </li>
+              <li>
+                <span class="book-title">I Have More Souls Than One</span
+                ><span class="book-author">Fernando Pessoa</span>
+              </li>
+              <li>
+                <span class="book-title">The Palace of Illusions</span
+                ><span class="book-author">Chitra Banerjee Divakaruni</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="reading-year" aria-labelledby="year-2022">
+          <h3 id="year-2022">2022</h3>
+          <div class="reading-group finished-reading">
+            <h4>Finished</h4>
+            <ul class="notes-book-list">
+              <li>
+                <span class="book-title"
+                  >The Lord of the Rings: The Fellowship of the Ring</span
+                ><span class="book-author">J. R. R. Tolkien</span>
+              </li>
+              <li>
+                <span class="book-title">Em and the Big Hoom</span
+                ><span class="book-author">Jerry Pinto</span>
+              </li>
+              <li>
+                <span class="book-title">The Metamorphosis</span
+                ><span class="book-author">Franz Kafka</span>
+              </li>
+              <li>
+                <span class="book-title">Ballad for Sophie</span
+                ><span class="book-author"
+                  >Filipe Melo and Juan Cavia · Graphic novel</span
+                >
+              </li>
+              <li>
+                <span class="book-title">To the Lighthouse</span
+                ><span class="book-author">Virginia Woolf</span>
+              </li>
+              <li>
+                <span class="book-title">A Room of One&#x27;s Own</span
+                ><span class="book-author">Virginia Woolf</span>
+              </li>
+              <li>
+                <span class="book-title">At the Existentialist Café</span
+                ><span class="book-author">Sarah Bakewell</span>
+              </li>
+              <li>
+                <span class="book-title">The Machine Stops</span
+                ><span class="book-author">E. M. Forster</span>
+              </li>
+              <li>
+                <span class="book-title">Cream</span
+                ><span class="book-author">Haruki Murakami</span>
+              </li>
+              <li>
+                <span class="book-title">Men Without Women</span
+                ><span class="book-author">Haruki Murakami</span>
+              </li>
+              <li>
+                <span class="book-title"
+                  >The Sandman: Preludes &amp; Nocturnes</span
+                >
+              </li>
+              <li>
+                <span class="book-title">Ikigai</span
+                ><span class="book-author"
+                  >Héctor García and Francesc Miralles</span
+                >
+              </li>
+              <li>
+                <span class="book-title">After Dark</span
+                ><span class="book-author">Haruki Murakami</span>
+              </li>
+              <li>
+                <span class="book-title">Figuring</span
+                ><span class="book-author">Maria Popova</span>
+              </li>
+              <li>
+                <span class="book-title">The Prophet</span
+                ><span class="book-author">Kahlil Gibran</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="reading-year" aria-labelledby="year-2021">
+          <h3 id="year-2021">2021</h3>
+          <div class="reading-group finished-reading">
+            <h4>Finished</h4>
+            <ul class="notes-book-list">
+              <li>
+                <span class="book-title">The Hobbit</span
+                ><span class="book-author">J. R. R. Tolkien</span>
+              </li>
+              <li>
+                <span class="book-title">Kafka on the Shore</span
+                ><span class="book-author">Haruki Murakami</span>
+              </li>
+              <li>
+                <span class="book-title">The Trial</span
+                ><span class="book-author">Franz Kafka</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="reading-year" aria-labelledby="year-2020">
+          <h3 id="year-2020">2020</h3>
+          <div class="reading-group finished-reading">
+            <h4>Finished</h4>
+            <ul class="notes-book-list">
+              <li>
+                <span class="book-title">Digital Fortress</span
+                ><span class="book-author">Dan Brown</span>
+              </li>
+              <li>
+                <span class="book-title">The Picture of Dorian Gray</span
+                ><span class="book-author">Oscar Wilde</span>
+              </li>
+              <li>
+                <span class="book-title">If God Was a Banker</span
+                ><span class="book-author">Ravi Subramanian</span>
+              </li>
+              <li>
+                <span class="book-title">Girl, Woman, Other</span
+                ><span class="book-author">Bernardine Evaristo</span>
+              </li>
+              <li>
+                <span class="book-title">The Death Relic</span
+                ><span class="book-author">Chris Kuzneski</span>
+              </li>
+              <li>
+                <span class="book-title">The Bell Jar</span
+                ><span class="book-author">Sylvia Plath</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="notes-bottom">
+        <span>A shelf in progress</span><span>Esc to close</span>
+      </div>
+    </dialog>
 
-    <script>
-    // 1. Just set the TOTAL number of images you have in the folder
-    const totalImages = 21; 
-    
-    // 2. Track the current image number (starting at 1)
-    let currentNumber = 1;
-
-    const carouselImg = document.getElementById('carousel-img');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-
-    // 3. Dynamically construct the file path using the number
-    function updateImage() {
-        carouselImg.src = `images/${currentNumber}.jpeg`;
-    }
-
-    // 4. Next Button Logic
-    nextBtn.addEventListener('click', () => {
-        currentNumber++;
-        if (currentNumber > totalImages) {
-            currentNumber = 1; // Loop back to the first image
-        }
-        updateImage();
-    });
-
-    // 5. Previous Button Logic
-    prevBtn.addEventListener('click', () => {
-        currentNumber--;
-        if (currentNumber < 1) {
-            currentNumber = totalImages; // Loop to the last image
-        }
-        updateImage();
-    });
-</script>
-</body>
+    <script src="site.js" defer></script>
+    <script src="home.js" defer></script>
+  </body>
 </html>
