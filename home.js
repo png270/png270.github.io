@@ -1,5 +1,5 @@
 // Gallery files are images/1.jpeg through images/21.jpeg.
-const totalImages = 21;
+const totalImages = 26;
 let currentNumber = 1;
 let changingPostcard = false;
 const postcard = document.getElementById("postcard");
