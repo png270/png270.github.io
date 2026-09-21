@@ -1,138 +1,251 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <title>How to catch bugs?</title>
-    <link rel="stylesheet" href="code-review.css">
-</head>
+    <link rel="stylesheet" href="../site.css" />
+    <link rel="stylesheet" href="notes.css" />
+  </head>
 
-<body>
-
-    <main class="main-container">
-
-        <div class="navbar">
-            <nav>
-                <a href="../index.html">Home</a>
-                <a href="../projects/projects.html">Projects</a>
-                <a href="../about/about.html">About</a>
-            </nav>
+  <body>
+    <main class="main-container notes-window">
+      <header class="window-bar">
+        <div class="window-controls" aria-label="Decorative window controls">
+          <button
+            type="button"
+            class="window-dot dot-red"
+            aria-label="Close (decorative)"
+          ></button
+          ><button
+            type="button"
+            class="window-dot dot-yellow"
+            aria-label="Minimize (decorative)"
+          ></button
+          ><button
+            type="button"
+            class="window-dot dot-green"
+            aria-label="Maximize (decorative)"
+          ></button>
         </div>
-
-        <div class="post-wrapper">
-
+        <nav class="window-menu" aria-label="Main navigation">
+          <a href="../index.html">Home</a
+          ><a href="../projects/projects.html">Projects</a
+          ><a href="../about/about.html">About</a>
+        </nav>
+        <span class="window-title">Notes</span>
+      </header>
+      <div class="notes-toolbar">
+        <div class="toolbar-group">
+          <button
+            type="button"
+            class="toolbar-button"
+            id="sidebar-toggle"
+            aria-label="Toggle notes sidebar"
+            aria-controls="notes-sidebar"
+            aria-expanded="true"
+          >
+            <i class="fa-solid fa-table-columns" aria-hidden="true"></i></button
+          ><span class="toolbar-label">Security Musings</span>
+        </div>
+        <a
+          class="toolbar-button"
+          href="../index.html"
+          aria-label="Back to archives"
+          >←</a
+        >
+      </div>
+      <div class="notes-layout">
+        <aside
+          class="notes-sidebar"
+          id="notes-sidebar"
+          aria-label="Article navigation"
+        >
+          <h2 class="sidebar-heading">From the archives</h2>
+          <a class="note-preview" href="essay1.html"
+            ><strong class="preview-title"
+              >The Garden of Forking Paths Vs. An Onion</strong
+            ><span class="preview-date">June 08, 2026</span></a
+          ><a class="note-preview" href="ctf-writeup.html"
+            ><strong class="preview-title"
+              >Sisterhood of the Traveling Packets CTF </strong
+            ><span class="preview-date">August 20, 2026</span></a
+          ><a class="note-preview" href="code-review.html" aria-current="page"
+            ><strong class="preview-title"
+              >How to catch bugs online (fast)?</strong
+            ><span class="preview-date">August 28, 2026</span></a
+          >
+          <p class="sidebar-footer">3 notes · By Siddhi</p>
+        </aside>
+        <div
+          class="note-scroll"
+          tabindex="0"
+          role="region"
+          aria-label="Write-up"
+        >
+          <div class="post-wrapper">
             <header class="post-header">
-                <div class="category-badge">
-                    <span class="badge-text">Security Musings</span>
-                </div>
+              <div class="category-badge">
+                <span class="badge-text">Security Musings</span>
+              </div>
 
-                <h1 class="post-title">How to catch bugs online (fast)?</h1>
-                <h5>Catching bugs requires different tools and techniques depending on whether you are targeting flying
-                    insects, crawling ground-dwellers, or <i>source code.</i></h5>
-                <br>
+              <h1 class="post-title">How to catch bugs online (fast)?</h1>
+              <p class="post-subtitle">
+                Catching bugs requires different tools and techniques depending
+                on whether you are targeting flying insects, crawling
+                ground-dwellers, or <i>source code.</i>
+              </p>
 
-                <div class="post-meta">
-                    <span>Published: August 28, 2026</span>
-                    <span>•</span>
-                    <span>By: Siddhi</span>
-                </div>
+              <div class="post-meta">
+                <span>Published: August 28, 2026</span>
+                <span>•</span>
+                <span>By: Siddhi</span>
+              </div>
             </header>
 
-            <hr class="post-divider">
+            <hr class="post-divider" />
 
             <article class="post-content">
+              <p>
+                I was once doom scrolling on Twitter
+                <i>(*I don’t like to call it X yet)</i> and came across a piece
+                of code published by Bug Crowd as part of their “Spot the Bug”
+                series. It asked to spot a potential vulnerability in the code
+                snippet and I failed miserably. Not because I didn’t know how to
+                read code, but because I failed to stop at every line and think
+                about it. Think about how the data flows, what happens to it at
+                that specific line of code and what could I modify as an
+                attacker to exploit something. This is a game of patience and
+                practice.
+              </p>
+
+              <div class="text-center-wrapper">
+                <img
+                  src="bug.webp"
+                  alt="fun fact"
+                  style="width: 200px; height: auto"
+                />
+              </div>
+
+              <p>
+                Secure code review feels more like an art to me than a
+                deliberate examination process designed to catch bugs in code.
+                Mind you, there’s a big difference between a bug and a
+                vulnerability. Bugs are functional flaws while vulnerabilities
+                are flaws that create security weaknesses that an attacker can
+                exploit. All vulnerabilities are bugs, but not all bugs are
+                vulnerabilities, by the way. For example, a typo misaligning a
+                UI element is a bug and poses no security risk. So, you may ask
+                why do we need secure code review in the first place? There are
+                SAST tools that can scan your code and find you pain points as
+                well as functional testing that takes place.
+              </p>
+
+              <p>
+                What’s the big deal then? First, it helps you find flaws that
+                functional testing and automated code scanning misses. The
+                guesses an attacker can make cannot be replicated by an
+                automated approach in certain cases. And second, its’s a huge
+                cost saver because it’s way cheaper to fix them during
+                development than fix the vulnerabilities after your application
+                has been breached. And finally, there’s no harm in learning the
+                skill lol.
+              </p>
+
+              <p>
+                Unfortunately, there aren’t many sources for secure code review
+                that can help you learn the skill or provide a specific
+                framework to do so. So, here’s my approach on how I’m learning
+                the skill and how I’m trying to get better at it.
+              </p>
+
+              <p>
+                Ever heard of an LLM called ChatGPT? Of course. I asked GPT to
+                give me a code snippet every day for secure code review practice
+                and then grade my responses. Initially, I found it difficult it
+                to understand what is happening in the code because my first
+                instinct was to catch that one line of code which has the
+                vulnerability. However, after my first few failed attempts, I
+                understood how important it is to learn how to read code.
+                Reading code essentially means understanding where the input is
+                coming from, how the data flows and the result it is trying to
+                accomplish.
+              </p>
+              <p>
+                The next thing I kept fumbling at was classifying the
+                vulnerabilities. I found everything to be a problem created by
+                missing input validation and sanitization. It was a recurring
+                answer but not every vulnerability is caused by user input. So,
+                I asked the LLM to help me not do that.
+                <i
+                  >*It feels really weird to say it out aloud how I’m being
+                  taught a skill by an LLM.*</i
+                >
+                Here’s the approach it spit out –
+              </p>
+              <div class="callout">
                 <p>
-                    I was once doom scrolling on Twitter <i>(*I don’t like to call it X yet)</i> and came across a piece
-                    of code published by Bug Crowd as part of their “Spot the Bug” series. It asked to spot a potential
-                    vulnerability in the code snippet and I failed miserably. Not because I didn’t know how to read
-                    code, but because I failed to stop at every line and think about it. Think about how the
-                    data flows, what happens to it at that specific line of code and what could I modify as an attacker
-                    to exploit something. This is a game of patience and practice. </p>
+                  “Use the following framework to structure your answer –
+                  Finding → Evidence → Impact → Fix.”
+                </p>
+              </div>
 
-                <div class="text-center-wrapper">
-                    <img src="bug.webp" alt="fun fact" style="width: 200px; height: auto;">
+              <p>
+                It worked in improving my answers. But I still wasn’t there at
+                accurately classifying the vulnerabilities. I got over blaming
+                user inputs so that was a win.
+              </p>
+
+              <p>
+                Another thing I realized was how badly I needed to understand
+                how common vulnerabilities worked. While I could identify what
+                line of code is problematic and how an attacker can manipulate
+                it, I’m still far from naming it correctly. There have been
+                multiple hits and misses with this approach.
+              </p>
+
+              <p>
+                For example, for this code snippet which includes a Python
+                endpoint that restores UI preferences from a browser cookie, my
+                approach resulted in correctly identifying the vulnerability. I
+                described it as -
+              </p>
+
+              <div class="callout">
+                <p>
+                  “source is a cookie, sink is preferences = pickle.loads(raw).
+                  Missing control is -unauthenticated cookie, untrusted cookie.
+                  If pickle deserialized malicious cookie, it can result in
+                  arbitrary code execution”
+                </p>
+              </div>
+
+              <p>
+                What I missed was naming the vulnerability correctly which was
+                “Insecure deserialization”. A good fix is to never deserialize
+                untrusted pickle data. Using a non-executable format such as
+                JSON, validating it against a strict schema, and using a signed
+                cookie are good ways to mitigate it. However, I couldn’t figure
+                this fix out so it went into my database/table. Yes, I created a
+                tracker that would include a vulnerability name, the root cause
+                and a fix. This is good for recall but there’s a long way to go
+                for me to be an expert at it.
+              </p>
+
+              <div class="code-window">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <span class="code-dot dot-red"></span>
+                    <span class="code-dot dot-yellow"></span>
+                    <span class="code-dot dot-green"></span>
+                  </div>
+                  <span class="code-lang">python</span>
                 </div>
-
-                <style>
-                    .text-center-wrapper {
-                        text-align: center;
-                        /* Centers all inline elements inside it */
-                    }
-                </style>
-                <p></p>
-
-
-
-                <p>Secure code review feels more like an art to me than a deliberate examination process designed to
-                    catch bugs in code. Mind you, there’s a big difference between a bug and a vulnerability. Bugs are
-                    functional flaws while vulnerabilities are flaws that create security weaknesses that an attacker
-                    can exploit. All vulnerabilities are bugs, but not all bugs are vulnerabilities, by the way. For
-                    example, a typo misaligning a UI element is a bug and poses no security risk. So, you may ask why do
-                    we need secure code review in the first place? There are SAST tools that can scan your code and find
-                    you pain points as well as functional testing that takes place.</p>
-
-                <p>What’s the big deal then? First, it helps you find flaws that functional testing and automated
-                    code scanning misses. The guesses an attacker can make cannot be replicated by an automated approach
-                    in certain cases. And second, its’s a huge cost saver because it’s way cheaper to fix them during
-                    development than fix the vulnerabilities after your application has been breached. And finally,
-                    there’s no harm in learning the skill lol. </p>
-
-                <p>Unfortunately, there aren’t many sources for secure code review that can help you learn the skill or
-                    provide a specific framework to do so. So, here’s my approach on how I’m learning the skill and how
-                    I’m trying to get better at it.</p>
-
-                <p>Ever heard of an LLM called ChatGPT? Of course. I asked GPT to give me a code snippet every day for
-                    secure code review practice and then grade my responses. Initially, I found it difficult it to understand what is
-                    happening in the code because my first instinct was to catch that one line of code which has the
-                    vulnerability. However, after my first few failed attempts, I understood how important it is to
-                    learn how to read code. Reading code essentially means understanding where the input is coming from,
-                    how the data flows and the result it is trying to accomplish.</p>
-                <p>The next thing I kept fumbling at was classifying the vulnerabilities. I found everything to be a
-                    problem created by missing input validation and sanitization. It was a recurring answer but not
-                    every vulnerability is caused by user input. So, I asked the LLM to help me not do that. <i>*It
-                        feels really weird to say it out aloud how I’m being taught a skill by an LLM.*</i> Here’s the
-                    approach it spit out –</p>
-                <div class="callout">
-                    <p>“Use the following framework to structure your answer – Finding → Evidence → Impact → Fix.”</p>
-                </div>
-
-                <p>It worked in improving my answers. But I still wasn’t there at accurately classifying the
-                    vulnerabilities. I got over blaming user inputs so that was a win.</p>
-
-                <p>Another thing I realized was how badly I needed to understand how common vulnerabilities worked.
-                    While I could identify what line of code is problematic and how an attacker can manipulate it, I’m
-                    still far from naming it correctly. There have been multiple hits and misses with this approach.</p>
-
-
-                <p>For example, for this code snippet which includes a Python endpoint that restores UI preferences from
-                    a browser cookie, my approach resulted in correctly identifying the vulnerability. I described it as
-                    -</p>
-
-                <div class="callout">
-                    <p>“source is a cookie, sink is preferences = pickle.loads(raw). Missing control is -unauthenticated
-                        cookie, untrusted cookie. If pickle deserialized malicious cookie, it can result in arbitrary
-                        code execution”</p>
-                </div>
-
-                <p>What I missed was naming the vulnerability correctly which was “Insecure deserialization”. A good fix
-                    is to never deserialize untrusted pickle data. Using a non-executable format such as JSON,
-                    validating it against a strict schema, and using a signed cookie are good ways to mitigate it.
-                    However, I couldn’t figure this fix out so it went into my database/table. Yes, I created a tracker
-                    that would include a vulnerability name, the root cause and a fix. This is good for recall but
-                    there’s a long way to go for me to be an expert at it.</p>
-
-                <div class="code-window">
-                    <div class="code-header">
-                        <div class="code-dots">
-                            <span class="code-dot dot-red"></span>
-                            <span class="code-dot dot-yellow"></span>
-                            <span class="code-dot dot-green"></span>
-                        </div>
-                        <span class="code-lang">python</span>
-                    </div>
-                    <pre><code class="language-python">
+                <pre><code class="language-python">
 import base64
 import pickle
 from flask import Flask, request, jsonify
@@ -154,22 +267,23 @@ encoded = request.cookies.get("preferences")
 
         return jsonify(preferences)
                     </code></pre>
+              </div>
+
+              <p>
+                Here’s another example where I felt like I correctly evaluated
+                the code but missed the key vulnerability.
+              </p>
+
+              <div class="code-window">
+                <div class="code-header">
+                  <div class="code-dots">
+                    <span class="code-dot dot-red"></span>
+                    <span class="code-dot dot-yellow"></span>
+                    <span class="code-dot dot-green"></span>
+                  </div>
+                  <span class="code-lang">python</span>
                 </div>
-
-
-                <p>Here’s another example where I felt like I correctly evaluated the code but missed the key
-                    vulnerability.</p>
-
-                <div class="code-window">
-                    <div class="code-header">
-                        <div class="code-dots">
-                            <span class="code-dot dot-red"></span>
-                            <span class="code-dot dot-yellow"></span>
-                            <span class="code-dot dot-green"></span>
-                        </div>
-                        <span class="code-lang">python</span>
-                    </div>
-                    <pre><code class="language-python">
+                <pre><code class="language-python">
 @app.get("/api/admin/users/export")
 @require_admin
 def export_users():
@@ -195,99 +309,176 @@ def export_users():
     )
 
 </code></pre>
-                </div>
-                <p>My answer this time was - </p>
-                <div class="callout">
-                    <p>“Program flow + inputs = no inputs passed, finds all users in the db, the output is given as a
-                        string. A writer is created to write the output to a csv file. creates rows with name, email and
-                        company. now the resulting query stored in users is parsed to write name, email, company. Then
-                        the output is produced as a csv and headers are updated.
-                        given - users can edit their own name and company name. The export is opened in spreadsheet
-                        software.
+              </div>
+              <p>My answer this time was -</p>
+              <div class="callout">
+                <p>
+                  “Program flow + inputs = no inputs passed, finds all users in
+                  the db, the output is given as a string. A writer is created
+                  to write the output to a csv file. creates rows with name,
+                  email and company. now the resulting query stored in users is
+                  parsed to write name, email, company. Then the output is
+                  produced as a csv and headers are updated. given - users can
+                  edit their own name and company name. The export is opened in
+                  spreadsheet software.
+                </p>
 
-                    <p>My first assumption is that the headers are being returned. If content-disposition header is
-                        modified, file name is changed to some other pe, a malicious file can be downloaded. This is a
-                        vulnerability, maybe a HTTP header poisoning/injection vulnerability more like stored XSS, so if
-                        one user who exports the file can change extension, maybe add malicious code init. when a legit
-                        user exports and views the file, it'll misbehave. Ideal fix could be maybe use encoding for
-                        filenames?</p>
-                    <p>oh this also makes me realize, a malicious user can try putting full paths in the filename and it
-                        can lead to path traversal vulnerability. encoding it properly might help, i guess. I'm not
-                        sure.”</p>
-                    </p>
-                </div>
+                <p>
+                  My first assumption is that the headers are being returned. If
+                  content-disposition header is modified, file name is changed
+                  to some other pe, a malicious file can be downloaded. This is
+                  a vulnerability, maybe a HTTP header poisoning/injection
+                  vulnerability more like stored XSS, so if one user who exports
+                  the file can change extension, maybe add malicious code init.
+                  when a legit user exports and views the file, it'll misbehave.
+                  Ideal fix could be maybe use encoding for filenames?
+                </p>
+                <p>
+                  oh this also makes me realize, a malicious user can try
+                  putting full paths in the filename and it can lead to path
+                  traversal vulnerability. encoding it properly might help, i
+                  guess. I'm not sure.”
+                </p>
+              </div>
 
+              <p>
+                3/10 for the attempt. I described the program flow accurately,
+                but I focused on a value that the attacker does not control. I
+                also overlooked the stored user-controlled fields. Simple, yet
+                deceiving.
+              </p>
 
-                <p>3/10 for the attempt. I described the program flow accurately, but I focused on a value that the
-                    attacker does not control. I also overlooked the stored user-controlled fields. Simple, yet
-                    deceiving.</p>
-
-                <p>I now try to lay out my understanding of the code first, summarize what it does and how the input
-                    flows around. Then I try to identify everything an attacker might try to influence for example,
-                    request body and route/query parameters, headers and cookies, uploaded filenames and content,
-                    database values originally submitted by users, webhook events, URLs and redirects, configuration
-                    supplied by another system etc.</p>
-                <p>Another thing I check for is trust. Is the caller authenticated? Is this specific action authorized?
-                    Does the requested object belong to this caller? Can the caller assign privileged fields? Is the
-                    request genuinely from the claimed system? Is the data merely syntactically valid, or is it also
-                    permitted?</p>
-                <p>This helped me identify where the potential problem is. However, I still at times don’t understand
-                    where the fix could be applied. Knowing where the problem is one thing but to know how to fix it
-                    correctly is a whole new but also very related task.</p>
-                <p>What helped me get better at this point was reading up on common vulnerabilities and creating a table
-                    of fixes that can be applied to fix it.</p>
-                <p>I’m still practicing but some other resources I’ve found to be extremely helpful are – </p>
-                <ul>
-                    <li>Reading source code of vulnerable applications. OWASP Juice Shop or DVWA are some good
-                        open-source vulnerable application that can be found on GitHub. Or just looking at OWASP Secure
-                        Code Review cheat sheet can also give you a good start at how to approach it.</li>
-                    <li>Another great guide is on Medium. This
-                        <link> medium article clearly describes what you should do to learn secure code review. There’s
-                        a GitHub repository as well as YouTube walkthroughs by the author that should be given a good
-                        consideration.
-                    </li>
-                    <li>Finally, PentesterLab has a great introduction and a lab exercise full of code files that can
-                        help with practice.</li>
-                </ul>
-                <p>A variety of resources for practice does make you better at that review. I’ve listed some useful
-                    resources below –</p>
-                <ul>
-                    <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Secure_Code_Review_Cheat_Sheet.html">OWASP
-                            Cheatsheet Series - Secure Code Review</a></li>
-                    <li><a href="https://owasp.org/SecureCodingDojo/codereview101/">OWASP Secure Coding Dojo</a></li>
-                    <li><a href="https://pentesterlab.com/blog/introduction-to-secure-code-review">PentesterLab -
-                            Introduction to Secure Code Review</a></li>
-                    <li><a href="https://youtu.be/Y4FQoMyRYtI?si=cZE9F5H8Th-4cRI2">Code Review Challenges
-                            Walkthrough</a></li>
-                    <li><a href="https://github.com/dub-flow/secure-code-review-challenges">Secure Code Review
-                            Challenges</a></li>
-                    <li><a href="https://medium.com/@dub-flow/how-to-get-started-with-secure-code-review-89bcf2eb7ec4">How
-                            to get started with secure code review on Medium</a></li>
-                </ul>
-
-
+              <p>
+                I now try to lay out my understanding of the code first,
+                summarize what it does and how the input flows around. Then I
+                try to identify everything an attacker might try to influence
+                for example, request body and route/query parameters, headers
+                and cookies, uploaded filenames and content, database values
+                originally submitted by users, webhook events, URLs and
+                redirects, configuration supplied by another system etc.
+              </p>
+              <p>
+                Another thing I check for is trust. Is the caller authenticated?
+                Is this specific action authorized? Does the requested object
+                belong to this caller? Can the caller assign privileged fields?
+                Is the request genuinely from the claimed system? Is the data
+                merely syntactically valid, or is it also permitted?
+              </p>
+              <p>
+                This helped me identify where the potential problem is. However,
+                I still at times don’t understand where the fix could be
+                applied. Knowing where the problem is one thing but to know how
+                to fix it correctly is a whole new but also very related task.
+              </p>
+              <p>
+                What helped me get better at this point was reading up on common
+                vulnerabilities and creating a table of fixes that can be
+                applied to fix it.
+              </p>
+              <p>
+                I’m still practicing but some other resources I’ve found to be
+                extremely helpful are –
+              </p>
+              <ul>
+                <li>
+                  Reading source code of vulnerable applications. OWASP Juice
+                  Shop or DVWA are some good open-source vulnerable application
+                  that can be found on GitHub. Or just looking at OWASP Secure
+                  Code Review cheat sheet can also give you a good start at how
+                  to approach it.
+                </li>
+                <li>
+                  Another great guide is on Medium. This medium article clearly
+                  describes what you should do to learn secure code review.
+                  There’s a GitHub repository as well as YouTube walkthroughs by
+                  the author that should be given a good consideration.
+                </li>
+                <li>
+                  Finally, PentesterLab has a great introduction and a lab
+                  exercise full of code files that can help with practice.
+                </li>
+              </ul>
+              <p>
+                A variety of resources for practice does make you better at that
+                review. I’ve listed some useful resources below –
+              </p>
+              <ul>
+                <li>
+                  <a
+                    href="https://cheatsheetseries.owasp.org/cheatsheets/Secure_Code_Review_Cheat_Sheet.html"
+                    >OWASP Cheatsheet Series - Secure Code Review</a
+                  >
+                </li>
+                <li>
+                  <a href="https://owasp.org/SecureCodingDojo/codereview101/"
+                    >OWASP Secure Coding Dojo</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://pentesterlab.com/blog/introduction-to-secure-code-review"
+                    >PentesterLab - Introduction to Secure Code Review</a
+                  >
+                </li>
+                <li>
+                  <a href="https://youtu.be/Y4FQoMyRYtI?si=cZE9F5H8Th-4cRI2"
+                    >Code Review Challenges Walkthrough</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/dub-flow/secure-code-review-challenges"
+                    >Secure Code Review Challenges</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://medium.com/@dub-flow/how-to-get-started-with-secure-code-review-89bcf2eb7ec4"
+                    >How to get started with secure code review on Medium</a
+                  >
+                </li>
+              </ul>
             </article>
 
             <footer class="post-navigation">
-                <a href="../index.html" class="back-link">&lt; Back to Archives</a>
+              <a href="../index.html" class="back-link"
+                >&lt; Back to Archives</a
+              >
             </footer>
-
+          </div>
         </div>
+      </div>
+      <div class="notes-status">
+        <span>Security Musings</span><span>By Siddhi</span>
+      </div>
     </main>
-    <footer class="social-footer">
-        <a href="https://www.linkedin.com/in/siddhi-lad/" target="_blank" rel="noopener noreferrer" class="social-box"
-            aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/png270" target="_blank" rel="noopener noreferrer" class="social-box"
-            aria-label="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:siddhi.lad00@gmail.com" class="social-box" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-        </a>
+    <footer class="social-footer" aria-label="Social links">
+      <a
+        href="https://www.linkedin.com/in/siddhi-lad/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-box"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+      <a
+        href="https://github.com/png270"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-box"
+        aria-label="GitHub"
+      >
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      <a
+        href="mailto:siddhi.lad00@gmail.com"
+        class="social-box"
+        aria-label="Email"
+      >
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+      </a>
     </footer>
-
 
     <!-- Prism.js Core CDN (Runs the syntax token parsing) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
@@ -295,6 +486,6 @@ def export_users():
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 
-</body>
-
+    <script src="../site.js" defer></script>
+  </body>
 </html>

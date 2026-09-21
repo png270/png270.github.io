@@ -1,172 +1,293 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <title>Sisterhood of the Traveling Packets CTF</title>
-    <link rel="stylesheet" href="ctf-writeup.css">
-</head>
+    <link rel="stylesheet" href="../site.css" />
+    <link rel="stylesheet" href="notes.css" />
+  </head>
 
-<body>
-
-    <main class="main-container">
-
-        <div class="navbar">
-            <nav>
-                <a href="../index.html">Home</a>
-                <a href="../projects/projects.html">Projects</a>
-                <a href="../about/about.html">About</a>
-            </nav>
+  <body>
+    <main class="main-container notes-window">
+      <header class="window-bar">
+        <div class="window-controls" aria-label="Decorative window controls">
+          <button
+            type="button"
+            class="window-dot dot-red"
+            aria-label="Close (decorative)"
+          ></button
+          ><button
+            type="button"
+            class="window-dot dot-yellow"
+            aria-label="Minimize (decorative)"
+          ></button
+          ><button
+            type="button"
+            class="window-dot dot-green"
+            aria-label="Maximize (decorative)"
+          ></button>
         </div>
-
-        <div class="post-wrapper">
-
+        <nav class="window-menu" aria-label="Main navigation">
+          <a href="../index.html">Home</a
+          ><a href="../projects/projects.html">Projects</a
+          ><a href="../about/about.html">About</a>
+        </nav>
+        <span class="window-title">Notes</span>
+      </header>
+      <div class="notes-toolbar">
+        <div class="toolbar-group">
+          <button
+            type="button"
+            class="toolbar-button"
+            id="sidebar-toggle"
+            aria-label="Toggle notes sidebar"
+            aria-controls="notes-sidebar"
+            aria-expanded="true"
+          >
+            <i class="fa-solid fa-table-columns" aria-hidden="true"></i></button
+          ><span class="toolbar-label">Security Musings</span>
+        </div>
+        <a
+          class="toolbar-button"
+          href="../index.html"
+          aria-label="Back to archives"
+          >←</a
+        >
+      </div>
+      <div class="notes-layout">
+        <aside
+          class="notes-sidebar"
+          id="notes-sidebar"
+          aria-label="Article navigation"
+        >
+          <h2 class="sidebar-heading">From the archives</h2>
+          <a class="note-preview" href="essay1.html"
+            ><strong class="preview-title"
+              >The Garden of Forking Paths Vs. An Onion</strong
+            ><span class="preview-date">June 08, 2026</span></a
+          ><a class="note-preview" href="ctf-writeup.html" aria-current="page"
+            ><strong class="preview-title"
+              >Sisterhood of the Traveling Packets CTF </strong
+            ><span class="preview-date">August 20, 2026</span></a
+          ><a class="note-preview" href="code-review.html"
+            ><strong class="preview-title"
+              >How to catch bugs online (fast)?</strong
+            ><span class="preview-date">August 28, 2026</span></a
+          >
+          <p class="sidebar-footer">3 notes · By Siddhi</p>
+        </aside>
+        <div
+          class="note-scroll"
+          tabindex="0"
+          role="region"
+          aria-label="Write-up"
+        >
+          <div class="post-wrapper">
             <header class="post-header">
-                <div class="category-badge">
-                    <span class="badge-text">CTF Write-Up</span>
-                </div>
+              <div class="category-badge">
+                <span class="badge-text">CTF Write-Up</span>
+              </div>
 
-                <h1 class="post-title">Sisterhood of the Traveling Packets CTF </h1>
-                <h5>WiCyS Flare SANS CTF 2026 Write-Up</h5>
-                <br>
+              <h1 class="post-title">
+                Sisterhood of the Traveling Packets CTF
+              </h1>
+              <p class="post-subtitle">WiCyS Flare SANS CTF 2026 Write-Up</p>
 
-                <div class="post-meta">
-                    <span>Published: August 20, 2026</span>
-                    <span>•</span>
-                    <span>By: Siddhi</span>
-                </div>
+              <div class="post-meta">
+                <span>Published: August 20, 2026</span>
+                <span>•</span>
+                <span>By: Siddhi</span>
+              </div>
             </header>
 
-            <hr class="post-divider">
+            <hr class="post-divider" />
 
             <article class="post-content">
-                <p>
-                    Few days ago, I participated in a CTF to get away from the lingering chaos and solve some puzzles. I almost forgot about the CTF until I checked my mail. I saw the access link and clicked on it to dive straight in. But welp, I couldn’t access it. I’m checking my Wi-Fi connection to figure out what’s wrong, until I saw the URL. It was an onion site and required a Tor browser. That’s what an attention span of a goldfish does to you. </p>
+              <p>
+                Few days ago, I participated in a CTF to get away from the
+                lingering chaos and solve some puzzles. I almost forgot about
+                the CTF until I checked my mail. I saw the access link and
+                clicked on it to dive straight in. But welp, I couldn’t access
+                it. I’m checking my Wi-Fi connection to figure out what’s wrong,
+                until I saw the URL. It was an onion site and required a Tor
+                browser. That’s what an attention span of a goldfish does to
+                you.
+              </p>
 
-                <p>The CTF scenario was based on a ransomware group that would steal files and upload it online onto their website. It showed you files they’ve leaked.</p>
+              <p>
+                The CTF scenario was based on a ransomware group that would
+                steal files and upload it online onto their website. It showed
+                you files they’ve leaked.
+              </p>
 
-                <p>Now what you do? Your first instinct is to go through the leaked files they’ve uploaded. You see the files with actual production grade names including a file named “api_keys_internal.yaml”. So, I checked the files for a possible hint. There were lots of dummy keys in it. You might think one of those keys is a flag. Hence, I started looking for strings, especially the ones with with ‘=’ in the end. That would mean it’s a base64 encoded string. Very common in CTFs. But... but… there are so many keys and none ending with a ‘=’!</p>
+              <p>
+                Now what you do? Your first instinct is to go through the leaked
+                files they’ve uploaded. You see the files with actual production
+                grade names including a file named “api_keys_internal.yaml”. So,
+                I checked the files for a possible hint. There were lots of
+                dummy keys in it. You might think one of those keys is a flag.
+                Hence, I started looking for strings, especially the ones with
+                with ‘=’ in the end. That would mean it’s a base64 encoded
+                string. Very common in CTFs. But... but… there are so many keys
+                and none ending with a ‘=’!
+              </p>
 
-                <p>I gave the contents of that file to an LLM to check for unusual string patterns. I went through the potential links present in the code as well. I saw the URL producing a certain output. I also tried ‘inspect elements’. Nothing useful.</p>
+              <p>
+                I gave the contents of that file to an LLM to check for unusual
+                string patterns. I went through the potential links present in
+                the code as well. I saw the URL producing a certain output. I
+                also tried ‘inspect elements’. Nothing useful.
+              </p>
 
-                <p>Then I carefully read the output my LLM provided to me and saw that it suspected that the files could be a distraction to throw me off in a different direction. So now what do you do?</p>
-                <p>Work smart. Sometimes reading instructions carefully helps. You can also check out CTF’s official discord support channel. You might find something that could spark an idea. I’ve done this a few times, it’s just a nudge to push you in the right direction. As a result, I found out that something was wrong with the site itself.</p>
+              <p>
+                Then I carefully read the output my LLM provided to me and saw
+                that it suspected that the files could be a distraction to throw
+                me off in a different direction. So now what do you do?
+              </p>
+              <p>
+                Work smart. Sometimes reading instructions carefully helps. You
+                can also check out CTF’s official discord support channel. You
+                might find something that could spark an idea. I’ve done this a
+                few times, it’s just a nudge to push you in the right direction.
+                As a result, I found out that something was wrong with the site
+                itself.
+              </p>
 
-                <p>First thing I did was check for the existence of a “robots.txt” file. This file is a simple text document located in the root directory of a website which tells the web crawlers or the bots what files and folders they can and cannot access on the domain.</p>
+              <p>
+                First thing I did was check for the existence of a “robots.txt”
+                file. This file is a simple text document located in the root
+                directory of a website which tells the web crawlers or the bots
+                what files and folders they can and cannot access on the domain.
+              </p>
 
-                <p>I discovered two endpoints by doing that. Then I tried to access each endpoint. Et voila look at that! </p>
+              <p>
+                I discovered two endpoints by doing that. Then I tried to access
+                each endpoint. Et voila look at that!
+              </p>
 
-                <div class="text-center-wrapper">
-                    <img src="art-1.png" alt="Artefact-1" style="width: 600px; height: auto;">
-                </div>
+              <div class="text-center-wrapper">
+                <img
+                  src="art-1.png"
+                  alt="Artefact-1"
+                  style="width: 600px; height: auto"
+                />
+              </div>
 
-                <style>
-                    .text-center-wrapper {
-                        text-align: center;
-                        /* Centers all inline elements inside it */
-                    }
-                </style>
-                <p></p>
+              <p>
+                I checked the error messages and found out potentially correct
+                formats to use to get to the right clues. I was able to access
+                conversations from one of the end points I accessed. I kept
+                messing with the URL to follow the conversation trail.
+              </p>
 
-                <p>I checked the error messages and found out potentially correct formats to use to get to the right clues. I was able to access conversations from one of the end points I accessed. I kept messing with the URL to follow the conversation trail.</p>
+              <div class="text-center-wrapper">
+                <img
+                  src="art-2.png"
+                  alt="Artefact-2"
+                  style="width: 600px; height: auto"
+                />
+              </div>
 
-                <div class="text-center-wrapper">
-                    <img src="art-2.png" alt="Artefact-2" style="width: 600px; height: auto;">
-                </div>
+              <div class="text-center-wrapper">
+                <img
+                  src="art-3.png"
+                  alt="Artefact-3"
+                  style="width: 600px; height: auto"
+                />
+              </div>
 
-                <style>
-                    .text-center-wrapper {
-                        text-align: center;
-                        /* Centers all inline elements inside it */
-                    }
-                </style>
-                <p></p>
+              <p>
+                One stupid move spotted in the conversation! I saw the password.
+                I spotted my “=” I was looking for. The base64 string decoded to
+                “Pantal0n3s_Rul3z!”.
+              </p>
 
-                <div class="text-center-wrapper">
-                    <img src="art-3.png" alt="Artefact-3" style="width: 600px; height: auto;">
-                </div>
+              <div class="text-center-wrapper">
+                <img
+                  src="art-4.png"
+                  alt="Artefact-4"
+                  style="width: 600px; height: auto"
+                />
+              </div>
 
-                <style>
-                    .text-center-wrapper {
-                        text-align: center;
-                        /* Centers all inline elements inside it */
-                    }
-                </style>
-                <p></p>
+              <p>
+                But wait is this it? Nope. There’s was more. I remembered there
+                was one more endpoint remaining for me to check. The admin page.
+                It took me to the login workflow. I knew who the user was from
+                the chats. I found the password as well. All that was left for
+                me to do was login. I entered the creds and boom! Found the
+                flag!
+              </p>
 
+              <p>Flag = flare{pantal0n3s_g0t_pantsed_2026}</p>
 
-                <p>One stupid move spotted in the conversation! I saw the password. I spotted my “=” I was looking for. The base64 string decoded to “Pantal0n3s_Rul3z!”.</p>
+              <div class="text-center-wrapper">
+                <img
+                  src="art-5.png"
+                  alt="Artefact-5"
+                  style="width: 600px; height: auto"
+                />
+              </div>
 
-                <div class="text-center-wrapper">
-                    <img src="art-4.png" alt="Artefact-4" style="width: 600px; height: auto;">
-                </div>
+              <p>
+                It was a fun little CTF challenge that I enjoyed working on.
+                Also taught me how miserable my attention span is.
+              </p>
 
-                <style>
-                    .text-center-wrapper {
-                        text-align: center;
-                        /* Centers all inline elements inside it */
-                    }
-                </style>
-                <p></p>
-
-
-
-                <p>But wait is this it? Nope. There’s was more. I remembered there was one more endpoint remaining for me to check. The admin page. It took me to the login workflow. I knew who the user was from the chats. I found the password as well. All that was left for me to do was login. I entered the creds and boom! Found the flag!</p>
-
-                <p>Flag = flare{pantal0n3s_g0t_pantsed_2026}</p>
-
-
-                <div class="text-center-wrapper">
-                    <img src="art-5.png" alt="Artefact-5" style="width: 600px; height: auto;">
-                </div>
-
-                <style>
-                    .text-center-wrapper {
-                        text-align: center;
-                        /* Centers all inline elements inside it */
-                    }
-                </style>
-                <p></p>
-
-                <p>It was a fun little CTF challenge that I enjoyed working on. Also taught me how miserable my attention span is.</p>
-
-                    <div class="text-center-wrapper">
-                    <img src="goldfish.gif" alt="Onion" style="width: 300px; height: auto;">
-                </div>
-
-                <style>
-                    .text-center-wrapper {
-                        text-align: center;
-                        /* Centers all inline elements inside it */
-                    }
-                </style>
-                <p></p>
-
-                
+              <div class="text-center-wrapper">
+                <img
+                  src="goldfish.gif"
+                  alt="Onion"
+                  style="width: 300px; height: auto"
+                />
+              </div>
             </article>
 
             <footer class="post-navigation">
-                <a href="../index.html" class="back-link">&lt; Back to Archives</a>
+              <a href="../index.html" class="back-link"
+                >&lt; Back to Archives</a
+              >
             </footer>
-
+          </div>
         </div>
+      </div>
+      <div class="notes-status">
+        <span>Security Musings</span><span>By Siddhi</span>
+      </div>
     </main>
-    <footer class="social-footer">
-        <a href="https://www.linkedin.com/in/siddhi-lad/" target="_blank" rel="noopener noreferrer" class="social-box"
-            aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/png270" target="_blank" rel="noopener noreferrer" class="social-box"
-            aria-label="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:siddhi.lad00@gmail.com" class="social-box" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-        </a>
+    <footer class="social-footer" aria-label="Social links">
+      <a
+        href="https://www.linkedin.com/in/siddhi-lad/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-box"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+      <a
+        href="https://github.com/png270"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-box"
+        aria-label="GitHub"
+      >
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      <a
+        href="mailto:siddhi.lad00@gmail.com"
+        class="social-box"
+        aria-label="Email"
+      >
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+      </a>
     </footer>
 
-</body>
-
+    <script src="../site.js" defer></script>
+  </body>
 </html>
