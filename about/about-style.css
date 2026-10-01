@@ -1,544 +1,901 @@
-.content-wrapper { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 35px; }
-h4, h6 { font-size: 1rem; }
-/* Left Profile Column */
-.profile-column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 25px;
-}
-/* ==========================================================================
-   INTERACTIVE BLING AVATAR (With 3D Hover & Image Mirror Flip)
-   ========================================================================== */
+/* ---------- Base ---------- */
 
-/* 1. The Container: Coordinates the 3D translation lifting physics */
-.avatar-container {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; /* Circular framing window */
-    position: relative;
-    z-index: 1;
-    
-    /* Smooth transition for the physical 3D lift physics */
-    transition: transform 0.15s ease;
-}
-
-/* 2. The Bling Border Layer: Handles the continuous indie color shimmer */
-.avatar-container::after {
-    content: '';
-    position: absolute;
-    top: -3px; left: -3px; right: -3px; bottom: -3px;
-    border-radius: 50%;
-    
-    /* Shimmering Gradient Matrix matching the resume button */
-    background: linear-gradient(45deg, #f3e63b, #f58476, #bfa1f2, #a3c1f7, #c5f0a4, #f3e63b);
-    background-size: 400%;
-    z-index: -1;
-    
-    /* Infinite loop animation configuration */
-    animation: avatarBlingShift 6s linear infinite;
-    
-    /* Transition to track the solid retro 3D drop-shadow */
-    transition: box-shadow 0.15s ease;
-}
-
-/* 3. The Image Frame: Houses your picture and executes the smooth flip */
-.profile-pic {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #000000; /* Sharp black frame border */
-    display: block;
-
-}
-
-/* ==========================================================================
-   RETRO INTERACTIVE STATES & HOVER PHYSICS
-   ========================================================================== */
-
-/* Hover Action: Lifts the container up-left and triggers the image mirror flip */
-.avatar-container:hover {
-    transform: translate(-4px, -4px); /* Moves container up and left */
-}
-
-/* Isolating the flip directly on the image element so it doesn't break the container physics */
-.avatar-container:hover .profile-pic {
-    transform: scaleX(-1); /* Flips asset cleanly across the X-axis on hover */
-}
-
-/* Spawns the rigid, hard black drop shadow under the bling boundary when hovered */
-.avatar-container:hover::after {
-    box-shadow: 4px 4px 0px #000000; 
-}
-
-/* Active Click Action: Snaps down completely flat when clicked */
-.avatar-container:active {
-    transform: translate(0px, 0px);
-}
-
-.avatar-container:active::after {
-    box-shadow: 0px 0px 0px #000000;
-}
-
-/* ==========================================================================
-   BLING SHIMMER LOOP REPLICATION
-   ========================================================================== */
-@keyframes avatarBlingShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Contact Info Card (Blue Box) */
-.info-card {
-    background-color: #a3c1f7;
-    padding: 15px;
-    width: 100%;
-    max-width: 240px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.info-card2 {
-    background-color: #f7a3ce;
-    padding: 15px;
-    width: 100%;
-    max-width: 240px;
-}
-
-/* Small highlighter-style label used for the "Latest Writes" card heading */
-.card-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background-color: #bffcff;
-    color: #000;
-    padding: 2px 6px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* Bulletless article list (write-ups) */
-.article-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.article-list li {
-    line-height: 1.4;
-    color: #000;
-    font-size: 0.85rem;
-}
-
-.article-list a {
-    color: #000;
-    text-decoration: underline;
-}
-
-/* Right Bio Column */
-.bio-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.about-heading {
-    font-size: 2.2rem;
-    font-weight: 900;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
-}
-
-.bio-text {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: #1c1c1e;
-    margin-bottom: 30px;
-}
-
-/* ==========================================================================
-   6. Colorful Info Block Grid (Asymmetrical Layout Blocks)
-   ========================================================================== */
-.info-block {
-    padding: 15px;
-    border: 1px solid #000;
-    min-height: 75px;
-}
-
-.info-block h3 {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #000;
-}
-
-.info-block p {
-    font-size: 0.95rem;
-    color: #1c1c1e;
-    line-height: 1.3;
-}
-
-/* Highlighter-style tag used for every block heading (Education, Work, etc.) */
-.block-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background-color: #bffcff;
-    color: #000;
-    padding: 2px 6px;
-}
-
-/* Flexbox Column Layout rules */
-.info-grid-flex {
-    display: flex;
-    gap: 15px;
-    width: 100%;
-}
-
-.info-column-left, 
-.info-column-right {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    flex: 1; /* Makes both columns take up equal width */
-}
-
-/* Ensure the layout stacks into one column on mobile mobile views */
-@media (max-width: 768px) {
-    .info-grid-flex {
-        flex-direction: column;
-    }
-}
-
-/* Individual Block Custom Colors and Heights */
-.block-purple { background-color: #bfa1f2; }
-.block-yellow { background-color: #faf6b2; grid-row: span 2; min-height: 150px; }
-.block-green  { background-color: #c5f0a4; min-height: 110px; }
-.block-orange { background-color: #f7ce97; min-height: 100px; }
-.block-red    { background-color: #f58476; }
-
-/* ==========================================================================
-   6b. Scannable List Components: Work Experience bullets
-   ========================================================================== */
-.exp-entry {
-    margin-bottom: 14px;
-}
-
-.exp-entry:last-child {
-    margin-bottom: 0;
-}
-
-.exp-entry h6 {
-    font-size: 0.95rem;
-    font-weight: bold;
-    color: #000;
-}
-
-.exp-meta {
-    font-size: 0.75rem;
-    font-weight: normal;
-    color: #3a3a3c;
-    margin-left: 6px;
-}
-
-.exp-list {
-    list-style: disc;
-    padding-left: 18px;
-    margin-top: 6px;
-}
-
-.exp-list li {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    color: #1c1c1e;
-    margin-bottom: 4px;
-}
-
-.exp-list li:last-child {
-    margin-bottom: 0;
-}
-
-/* ==========================================================================
-   6c. Scannable List Components: Competitions / Volunteering rows
-   ========================================================================== */
-.comp-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 12px;
-}
-
-.comp-row:last-child {
-    margin-bottom: 0;
-}
-
-.comp-badge {
-    flex-shrink: 0;
-    min-width: 72px;
-    text-align: center;
-    padding: 5px 6px;
-    border: 2px solid #000;
-    font-size: 0.7rem;
-    font-weight: bold;
-    color: #000;
-    line-height: 1.2;
-}
-
-.badge-win     { background-color: #f3e63b; }
-.badge-gold    { background-color: #a3c1f7; }
-.badge-neutral { background-color: #ffffff; }
-
-.comp-text h6 {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #000;
-}
-
-.comp-text p {
-    font-size: 0.85rem;
-    line-height: 1.35;
-    color: #1c1c1e;
-    margin-top: 2px;
-}
-
-@media (max-width: 768px) {
-    .comp-row {
-        flex-direction: column;
-        gap: 6px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .comp-badge {
-        min-width: 0;
-        width: fit-content;
+    html {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 14px;
     }
-}
 
-/* ==========================================================================
-   6d. Scannable List Components: Tech Stack chips
-   ========================================================================== */
-.chip-group {
-    margin-bottom: 10px;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+      color: #000;
+      background: #242134 url("../giphy.gif") center / cover no-repeat fixed;
+    }
 
-.chip-group:last-child {
-    margin-bottom: 0;
-}
+    button {
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
 
-.chip-label {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #000;
-    margin-bottom: 4px;
-}
+    a {
+      color: #000;
+      text-underline-offset: 3px;
+    }
 
-.chip-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
+    a,
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-.chip {
-    display: inline-flex;
-    align-items: center;
-    background-color: #ffffff;
-    border: 1.5px solid #000;
-    padding: 3px 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #000;
-    white-space: nowrap;
-}
+    a:focus-visible,
+    button:focus-visible,
+    [tabindex="0"]:focus-visible {
+      outline: 3px solid #8060bd;
+      outline-offset: 4px;
+    }
 
-/* Smaller chip variant for project tech tags (sits on the white card bg) */
-.chip-sm {
-    background-color: #faf6b2;
-    border: 1px solid #000;
-    padding: 2px 6px;
-    font-size: 0.7rem;
-    font-weight: 600;
-}
+    /* ---------- Original window dimensions ---------- */
 
-/* ==========================================================================
-   6e. Org logos (work experience + education)
-   ========================================================================== */
-.org-logo {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    background-color: #fff;
-    border: 1px solid #000;
-    padding: 1px;
-    vertical-align: -5px;
-    margin-right: 8px;
-}
+    .main-container {
+      width: 100%;
+      max-width: 1000px;
+      height: 80vh;
+      height: 80dvh;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #b8b8bf;
+      border-radius: 18px;
+      box-shadow: 0 24px 70px #0005, 0 2px 8px #0002;
+    }
 
-.org-logo:hover {
-    filter: none;
-}
+    .window-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+      min-height: 34px;
+      padding: 0 14px;
+      background: linear-gradient(#fafafa, #ededf0);
+      border-bottom: 1px solid #d8d8dd;
+    }
 
-.org-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 6px;
-}
+    .window-controls {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-shrink: 0;
+    }
 
-.org-row:last-child {
-    margin-bottom: 0;
-}
+    .window-dot {
+      width: 11px;
+      height: 11px;
+      padding: 0;
+      border: 1px solid #0002;
+      border-radius: 50%;
+    }
 
-.org-row p {
-    margin: 0;
-}
+    .window-dot:hover {
+      filter: brightness(.9);
+    }
 
-.exp-entry h6 .org-logo {
-    margin-right: 6px;
-}
+    .window-dot:active {
+      transform: scale(.88);
+    }
 
-/* ==========================================================================
-   Vertical Project Stack (Stacked Content Layout)
-   ========================================================================== */
+    .dot-red { background: #ff5f57; }
+    .dot-yellow { background: #febc2e; }
+    .dot-green { background: #28c840; }
 
-/* Outer container forcing a single-column vertical column stack */
-.project-stack-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Perfect spacing between stacked cards */
-    margin-top: 10px;
-    width: 100%;
-}
+    .window-menu {
+      display: flex;
+      align-self: stretch;
+      gap: 2px;
+    }
 
-/* Individual Interactive Project Box Card Framework */
-.project-list-card {
-    background-color: #ffffff;    /* White boxes */
-    border: 2px solid #000000;    /* Sharp black borders */
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;        /* Removes default link text underlines */
-    color: #000000;               /* Base font color injection */
-    width: 100%;
-    height: auto;                 /* Fluid height scales automatically based on text volume */
-    
-    /* Configures smooth rendering mechanics for the 3D translation */
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
+    .window-menu a {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      color: #333139;
+      font-size: 13px;
+      text-decoration: none;
+    }
 
-/* Typography styles matching your requested layout blueprint */
-.project-list-card h6 {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin: 0 0 8px 0;
-    line-height: 1.3;
-    color: #000000;
-}
+    .window-menu a[aria-current="page"] {
+      font-weight: bold;
+    }
 
-.project-tech-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 8px;
-}
+    .window-menu a:hover {
+      background: #dedee5;
+    }
 
-.project-list-card .project-desc {
-    font-size: 0.9rem;
-    line-height: 1.45;
-    color: #1c1c1e;
-    margin: 0;
-}
+    .window-menu a:focus-visible {
+      outline-offset: -3px;
+    }
 
-/* ==========================================================================
-   Retro 3D Hover & Click Physics
-   ========================================================================== */
+    .window-title {
+      margin-left: auto;
+      color: #706c76;
+      font-size: 11px;
+      white-space: nowrap;
+    }
 
-/* Hover State: Lifts up and maps a rigid, hard black drop shadow */
-.project-list-card:hover {
-    transform: translate(-4px, -4px); /* Moves card up and left smoothly */
-    box-shadow: 4px 4px 0px #000000;  /* Hard-edge black shadow effect pops out */
-    background-color: #ffffff;        /* Safeguards container background stay white */
-}
+    .window-content {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 45px 45px 50px;
+      scrollbar-width: thin;
+      scrollbar-color: #c8c8cf transparent;
+    }
 
-/* Active Pressed State: Snaps back down flush on click input interaction */
-.project-list-card:active {
-    transform: translate(0px, 0px);
-    box-shadow: 0px 0px 0px #000000;
-}
+    .window-content::-webkit-scrollbar {
+      width: 9px;
+    }
 
-/* ==========================================================================
-   7. Responsive Breakdowns for Tablet/Mobile Views
-   ========================================================================== */
-@media (max-width: 768px) {
-    
+    .window-content::-webkit-scrollbar-thumb {
+      background: #c8c8cf;
+      border: 2px solid #fff;
+      border-radius: 10px;
+    }
+
     .content-wrapper {
-        grid-template-columns: 1fr;
-        gap: 40px;
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: 35px;
+      align-items: start;
     }
-    
-    /* Layout Adjustments for the Profile Section on Mobile */
+
+    .content-wrapper > *,
+    .info-grid > * {
+      min-width: 0;
+    }
+
+    /* ---------- Original circular profile ---------- */
+
     .profile-column {
-        align-items: center;
-        width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
     }
-    
+
+    .avatar-container {
+      position: relative;
+      isolation: isolate;
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      transition: transform .15s ease;
+    }
+
+    .avatar-container::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      z-index: -1;
+      border-radius: 50%;
+      background: linear-gradient(
+        45deg,
+        #f3e63b,
+        #f58476,
+        #bfa1f2,
+        #a3c1f7,
+        #c5f0a4,
+        #f3e63b
+      );
+      background-size: 400%;
+      animation: avatarBlingShift 6s linear infinite;
+      transition: box-shadow .15s ease;
+    }
+
+    .avatar-container::before {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .profile-pic {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 2px solid #000;
+      border-radius: 50%;
+    }
+
+    .avatar-container:hover,
+    .avatar-container:focus-visible {
+      transform: translate(-4px, -4px);
+    }
+
+    .avatar-container:hover .profile-pic,
+    .avatar-container:focus-visible .profile-pic {
+      transform: scaleX(-1);
+    }
+
+    .avatar-container:hover::after,
+    .avatar-container:focus-visible::after {
+      box-shadow: 4px 4px 0 #000;
+    }
+
+    .avatar-container:active {
+      transform: translate(0, 0);
+    }
+
+    .avatar-container:active::after {
+      box-shadow: none;
+    }
+
+    @keyframes avatarBlingShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Ripples live outside the window's clipping area. */
+
+    .ripple-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .ripple-origin {
+      position: absolute;
+      width: 224px;
+      height: 224px;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+    }
+
+    .ripple-origin.active {
+      visibility: visible;
+    }
+
+    .ripple-ring {
+      position: absolute;
+      inset: 0;
+      border: 1px solid #8060bd;
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    .ripple-origin.active .ripple-ring {
+      animation: rippleOut 2.4s ease-out infinite;
+    }
+
+    .ripple-origin.active .ripple-ring:nth-child(2) {
+      animation-delay: .8s;
+      border-color: #000;
+    }
+
+    .ripple-origin.active .ripple-ring:nth-child(3) {
+      animation-delay: 1.6s;
+      border-color: #7f9bd0;
+    }
+
+    @keyframes rippleOut {
+      from {
+        transform: scale(1);
+        opacity: .55;
+      }
+      to {
+        transform: scale(2.25);
+        opacity: 0;
+      }
+    }
+
     .info-card,
     .info-card2 {
-        max-width: 100%;
+      width: 100%;
+      max-width: 240px;
+      padding: 15px;
+      border-radius: 8px;
+      line-height: 1.5;
     }
-    
-    .info-block {
-        grid-row: auto !important;
-        min-height: auto !important;
+
+    .info-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      background: #a3c1f7;
     }
-    
-    /* Drop the social icons back to a bottom row when side space is limited */
-}
 
-/* ==========================================================================
-   Indie Bling Resume Button (Option 2: Retro Color Flash)
-   ========================================================================== */
-.resume-btn-flash {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    max-width: 150px;
-    padding: 12px 20px;
-    font-weight: bold;
-    font-size: 1rem;
-    text-decoration: none;
-    cursor: pointer;
-    margin-top: 5px;
-    
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #000;
-    
-    /* Trigger the 90s cyber flash */
-    animation: retroBling 1.5s infinite;
-}
+    .info-card2 {
+      background: #f7a3ce;
+    }
 
-@keyframes retroBling {
-    0%, 100% {
+    .resume-btn-flash {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 150px;
+      margin-top: 5px;
+      padding: 12px 20px;
+      border: 2px solid #000;
+      border-radius: 4px;
+      background: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      animation: retroBling 1.5s infinite;
+    }
+
+    @keyframes retroBling {
+      0%, 100% {
         border-color: #000;
-        box-shadow: 2px 2px 0px #000;
+        background: #fff;
+        box-shadow: 2px 2px 0 #000;
+      }
+      50% {
+        border-color: #f3e63b;
+        background: #f3e63b;
+        box-shadow: 4px 4px 0 #bfa1f2;
+      }
     }
-    50% {
-        border-color: #f3e63b; /* Matches your logo yellow */
-        background-color: #f3e63b;
-        color: #000;
-        box-shadow: 4px 4px 0px #bfa1f2; /* Drop shadow pop */
-    }
-}
 
-@media (max-width: 1000px) { .info-grid-flex { flex-direction: column; } }
+    /* ---------- Bio and content columns ---------- */
+
+    .about-heading {
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .bio-text {
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #1c1c1e;
+    }
+
+    /*
+      The timeline gets the wider column.
+      Tech Stack and Currently Building share the right column.
+    */
+    .info-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 235px;
+      align-items: start;
+      gap: 10px;
+    }
+
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    /* ---------- Tech Stack ---------- */
+
+    .info-block {
+      padding: 15px;
+      border: 1px solid #000;
+      border-radius: 8px;
+    }
+
+    .block-yellow {
+      background: #faf6b2;
+    }
+
+    .info-block h2 {
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+    }
+
+    .block-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 6px;
+      background: #bffcff;
+    }
+
+    .chip-group {
+      margin-bottom: 14px;
+    }
+
+    .chip-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .chip-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: .8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      max-width: 100%;
+      padding: 4px 8px;
+      border: 1.5px solid #000;
+      border-radius: 4px;
+      background: #fff;
+      color: #000;
+      font-size: .85rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* ---------- Currently Building ---------- */
+
+    .building-section {
+      padding: 15px;
+      border: 1px solid #000;
+      border-radius: 8px;
+      background: #f7ce97;
+    }
+
+    .building-section h2 {
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .building-card {
+      padding: 13px;
+      border: 1px solid #000;
+      border-radius: 3px;
+      background: #fffdf5;
+      box-shadow: 2px 2px 0 #00000018;
+    }
+
+    .building-card + .building-card {
+      margin-top: 15px;
+    }
+
+    .building-status {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 2px 5px;
+      border: 1px solid #000;
+      background: #ccebc2;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .building-card h3 {
+      margin-bottom: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .building-card p {
+      margin-bottom: 9px;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .building-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ---------- Timeline ---------- */
+
+    .section-title {
+      margin-bottom: 5px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .section-caption {
+      margin-bottom: 24px;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .timeline-group-title {
+      margin: 26px 0 22px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .timeline-group-title span {
+      display: inline-block;
+      padding: 5px 8px;
+      border: 1px solid #000;
+      background: #bffcff;
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    /*
+      Photo | line | text postcard
+      These three measurements keep the line and dots aligned.
+    */
+    .timeline {
+      --photo-width: 90px;
+      --timeline-gap: 12px;
+
+      position: relative;
+      padding: 4px 0 15px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      bottom: 0;
+      left: calc(var(--photo-width) + var(--timeline-gap));
+      border-left: 1px dashed #777;
+    }
+
+    .timeline-date-tag {
+      position: relative;
+      z-index: 2;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 0 22px;
+      padding: 5px 8px;
+      border: 1px solid #000;
+      border-radius: 3px;
+      background: #f3e63b;
+      color: #000;
+      font-size: 10px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    .timeline-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: var(--photo-width) minmax(0, 1fr);
+      gap: calc(var(--timeline-gap) * 2);
+      align-items: start;
+      margin-bottom: 32px;
+    }
+
+    .timeline-row::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      top: 28px;
+      left: calc(var(--photo-width) + var(--timeline-gap));
+      width: 9px;
+      height: 9px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      background: #f3e63b;
+      transform: translateX(-50%);
+    }
+
+    .postcard {
+      grid-column: 2;
+      grid-row: 1;
+      position: relative;
+      width: 100%;
+      max-width: 260px;
+      padding: 13px;
+      color: #000;
+      background: #fffdf5;
+      border: 1px solid #c7c1b5;
+      border-radius: 3px;
+      box-shadow: 2px 3px 0 #00000014;
+      transform: rotate(1deg);
+    }
+
+    .postcard,
+    .postcard h3,
+    .postcard h4,
+    .postcard p,
+    .postcard li,
+    .postcard a,
+    .postcard time,
+    .postcard strong,
+    .postcard span {
+      color: #000;
+    }
+
+    .postcard::before,
+    .photo-card::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: -8px;
+      left: 50%;
+      width: 38px;
+      height: 15px;
+      background: #efe3b6b8;
+      border: 1px solid #ddd0a55c;
+      transform: translateX(-50%) rotate(-5deg);
+    }
+
+    .category {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 5px;
+      border: 1px solid #000;
+      background: #ded0f8;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+
+    .work .category { background: #c5e9f3; }
+    .project .category { background: #ccebc2; }
+    .community .category { background: #ffd4b8; }
+
+    .postcard h3 {
+      margin-bottom: 7px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .postcard p,
+    .postcard li {
+      margin-bottom: 7px;
+      font-size: 11px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .postcard p:last-child,
+    .postcard li:last-child {
+      margin-bottom: 0;
+    }
+
+    .postcard .date {
+      margin-bottom: 9px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .postcard .degree {
+      font-weight: bold;
+    }
+
+    .postcard ul {
+      margin-top: 8px;
+      padding-left: 14px;
+    }
+
+    .gpa {
+      display: inline-block;
+      padding: 2px 5px;
+      background: #f7ed92;
+      border: 1px solid #bcb26b;
+      font-weight: bold;
+    }
+
+    .postcard-project {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed #bdb6a7;
+    }
+
+    .postcard-project h4 {
+      margin-bottom: 6px;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .photo-card {
+      grid-column: 1;
+      grid-row: 1;
+      position: relative;
+      width: 100%;
+      margin-top: 14px;
+      padding: 5px 5px 10px;
+      background: #fffdf8;
+      border: 1px solid #d1cbc0;
+      border-radius: 2px;
+      box-shadow: 2px 3px 0 #00000012;
+      transform: rotate(-4deg);
+    }
+
+    .timeline-row:nth-of-type(even) .photo-card {
+      transform: rotate(3deg);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #e8e4dc;
+    }
+
+    .photo-card figcaption {
+      margin-top: 7px;
+      color: #000;
+      font-size: 10px;
+      line-height: 1.4;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .timeline-end {
+      position: relative;
+      width: fit-content;
+      padding: 5px 8px;
+      border: 1px solid #000;
+      background: #f3e63b;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    /* ---------- Outside social icons ---------- */
+
+    .social-footer {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      gap: 20px;
+    }
+
+    .social-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border: 2px solid #000;
+      border-radius: 7px;
+      background: #fff;
+      color: #000;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+
+    .social-box:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    /* ---------- Responsive ---------- */
+
+    @media (max-width: 1050px) {
+      .info-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+      }
+
+      .timeline {
+        --photo-width: 115px;
+        --timeline-gap: 15px;
+      }
+
+      .right-column {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        padding: 20px 14px;
+      }
+
+      .main-container {
+        height: auto;
+        border-radius: 16px;
+      }
+
+      .window-content {
+        overflow: visible;
+        padding: 35px 22px;
+      }
+
+      .content-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+      }
+
+      .profile-column {
+        align-items: center;
+        width: 100%;
+      }
+
+      .info-card,
+      .info-card2 {
+        max-width: 100%;
+      }
+
+      .timeline {
+        --photo-width: clamp(85px, 23vw, 150px);
+      }
+
+      .social-footer {
+        flex-direction: row;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .window-bar {
+        gap: 10px;
+        padding: 0 12px;
+      }
+
+      .window-menu a {
+        padding: 0 8px;
+        font-size: 12px;
+      }
+
+      .window-title {
+        display: none;
+      }
+
+      .window-content {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .timeline {
+        --photo-width: 72px;
+        --timeline-gap: 10px;
+      }
+
+      .postcard {
+        padding: 11px;
+      }
+
+      .photo-card {
+        padding: 4px 4px 8px;
+      }
+
+      .photo-card figcaption {
+        font-size: 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal-ready {
+        opacity: 0;
+        translate: 0 15px;
+        transition: opacity .45s ease, translate .45s ease;
+      }
+
+      .reveal-ready.is-visible {
+        opacity: 1;
+        translate: 0 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .ripple-layer {
+        display: none;
+      }
+    }
