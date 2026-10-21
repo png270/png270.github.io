@@ -1,474 +1,953 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Breachy-270</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="home-style.css" />
-    <link rel="stylesheet" href="site.css" />
-  </head>
-  <body class="home-page">
-    <main class="main-container">
-      <header class="window-bar">
-        <div class="window-controls" aria-label="Decorative window controls">
-          <button
-            type="button"
-            class="window-dot dot-red"
-            aria-label="Close (decorative)"
-          ></button
-          ><button
-            type="button"
-            class="window-dot dot-yellow"
-            aria-label="Minimize (decorative)"
-          ></button
-          ><button
-            type="button"
-            class="window-dot dot-green"
-            aria-label="Maximize (decorative)"
-          ></button>
-        </div>
-        <nav class="window-menu" aria-label="Main navigation">
-          <a href="index.html" aria-current="page">Home</a
-          ><a href="projects/projects.html">Projects</a
-          ><a href="about/about.html">About</a>
-        </nav>
-        <span class="window-title">breachy-270</span>
-      </header>
-      <div class="window-content">
-        <div class="content-wrapper">
-          <section class="left-col">
-            <div class="logo-container">
-              <h1 class="logo-text">Breachy-270</h1>
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breachy-270</title>
+  <link rel="stylesheet" href="portfolio.css">
+</head>
 
-            <p class="tagline">
-              Takes from a shelf with shaky stability because change is the only
-              constant.
-            </p>
+<body id="top">
+  <a class="skip-link" href="#writing">Skip to content</a>
 
-            <div class="gallery">
-              <div class="postcard-stack">
-                <button
-                  type="button"
-                  class="postcard"
-                  id="postcard"
-                  aria-label="Postcard 1 of 21. Show next postcard."
-                  aria-describedby="gallery-hint"
-                >
-                  <img
-                    class="postcard-photo"
-                    id="carousel-img"
-                    src="images/1.jpeg"
-                    alt="Picture 1 from my gallery"
-                    draggable="false"
-                  />
-                  <span class="postcard-caption"
-                    ><span class="postcard-message"
-                      ><strong>A little piece of here.</strong
-                      ><small>Just some pictures from my gallery ...</small></span
-                    ><span class="postcard-stamp" aria-hidden="true"
-                      ><span class="stamp-star">✦</span
-                      ><span class="stamp-word">POST</span></span
-                    ></span
-                  >
-                </button>
-              </div>
-              <div class="gallery-footer">
-                <span class="gallery-hint" id="gallery-hint"
-                  >Click for the next postcard ↗</span
-                ><span
-                  class="gallery-count"
-                  id="gallery-count"
-                  role="status"
-                  aria-live="polite"
-                  aria-atomic="true"
-                  >01 / 21</span
-                >
-              </div>
-            </div>
-          </section>
+  <!-- Social icons -->
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="linkedin-icon" viewBox="0 0 24 24">
+      <path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3v12h-3V9Zm5 0h3v1.6C12.2 9.5 13.2 9 14.8 9c3.1 0 4.7 2 4.7 5.5V21h-3v-6c0-2-.7-3-2.2-3-1.6 0-2.8 1.2-2.8 3.2V21h-3V9Z"/>
+    </symbol>
 
-          <section class="right-col">
-            <h2 class="year-heading">From The Archives</h2>
+    <symbol id="mail-icon" viewBox="0 0 24 24">
+      <path d="M3 5h18v14H3V5Zm2 2v.5l7 5 7-5V7H5Zm14 10V10l-7 5-7-5v7h14Z"/>
+    </symbol>
 
-            <ul class="article-list">
-              <li>
-                <a href="./writeup/essay1.html"
-                  >The Garden of Forking Paths Vs. An Onion</a
-                >
-              </li>
-              <li>
-                <a href="./writeup/ctf-writeup.html"
-                  >Sisterhood of the Traveling Packets CTF - Write-Up</a
-                >
-              </li>
-              <li>
-                <a href="./writeup/code-review.html"
-                  >How to catch bugs online (fast)?</a
-                >
-              </li>
-            </ul>
-          </section>
-        </div>
-      </div>
-    </main>
+    <symbol id="github-icon" viewBox="0 0 24 24">
+      <path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.5v-2.1c-3.4.7-4.1-1.4-4.1-1.4-.5-1.3-1.2-1.6-1.2-1.6-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.6-1.4-5.6-6.2 0-1.4.5-2.5 1.2-3.3-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.6 1.7.2 3 .1 3.3.8.8 1.2 1.9 1.2 3.3 0 4.8-2.9 5.9-5.6 6.2.4.4.8 1.1.8 2.2V22c0 .3.2.6.8.5A11.1 11.1 0 0 0 12 .9Z"/>
+    </symbol>
 
-    <footer class="social-footer" aria-label="Social links">
-      <a
-        href="https://www.linkedin.com/in/siddhi-lad/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-box"
-        aria-label="LinkedIn"
-      >
-        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+    <symbol id="x-icon" viewBox="0 0 24 24">
+      <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.9-9L.8 2h6.5l4.5 6.7L18.9 2ZM17.9 20h1.7L6.3 3.9H4.5L17.9 20Z"/>
+    </symbol>
+  </svg>
+
+  <!-- Contact links stay at the top right on desktop -->
+  <aside class="contact-rail" aria-label="Contact and résumé">
+    <p class="eyebrow">Connect With Me:</p>
+
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/siddhi-lad/"
+        target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true"><use href="#linkedin-icon"></use></svg>
+        LinkedIn <span aria-hidden="true">↗</span>
       </a>
-      <a
-        href="https://github.com/png270"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-box"
-        aria-label="GitHub"
-      >
-        <i class="fab fa-github" aria-hidden="true"></i>
-      </a>
-      <a
-        href="mailto:siddhi.lad00@gmail.com"
-        class="social-box"
-        aria-label="Email"
-      >
-        <i class="fas fa-envelope" aria-hidden="true"></i>
-      </a>
-    </footer>
 
-    <button
-      type="button"
-      class="books-launcher"
-      id="open-reading"
-      aria-label="Open my reading list"
-      aria-haspopup="dialog"
-      aria-controls="reading-dialog"
-      aria-expanded="false"
-    >
-      <span class="book-stack" aria-hidden="true"
-        ><span class="stack-book stack-book-bottom"></span
-        ><span class="stack-book stack-book-middle"></span
-        ><span class="stack-book stack-book-top"></span
-      ></span>
-      <span class="launcher-label">my bookshelf ↗</span>
-    </button>
-    <dialog
-      class="reading-dialog"
-      id="reading-dialog"
-      aria-labelledby="reading-title"
-    >
-      <div class="notes-toolbar">
-        <div class="window-controls">
-          <button
-            type="button"
-            class="window-dot dot-red"
-            id="close-reading"
-            aria-label="Close reading list"
-            autofocus
-          ></button>
-          <button
-            type="button"
-            class="window-dot dot-yellow"
-            aria-label="Minimize (decorative)"
-          ></button>
-          <button
-            type="button"
-            class="window-dot dot-green"
-            aria-label="Maximize (decorative)"
-          ></button>
-        </div>
-        <span class="notes-toolbar-title">Notes</span
-        ><span class="notes-icon" aria-hidden="true">▤</span>
-      </div>
-      <div
-        class="notes-paper"
-        tabindex="0"
-        role="region"
-        aria-label="Currently reading and books grouped by year"
-      >
-        <p class="note-eyebrow">A little collection</p>
-        <h2 id="reading-title">On my shelf</h2>
-        <p class="note-intro">
-          Things I've read. Things I'm halfway through.<br />A few more
-          perspectives to shake the shelf.
+      <a href="mailto:siddhi.lad00@gmail.com">
+        <svg aria-hidden="true"><use href="#mail-icon"></use></svg>
+        Email <span aria-hidden="true">↗</span>
+      </a>
+
+      <a href="https://github.com/png270"
+        target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true"><use href="#github-icon"></use></svg>
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+
+
+      <a href="https://x.com/apracticaln00b"
+        target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true"><use href="#x-icon"></use></svg>
+        Twitter <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <a class="resume-link" href="about/my-resume.pdf"
+      target="_blank" rel="noopener noreferrer">
+      My résumé <span aria-hidden="true">↗</span>
+    </a>
+  </aside>
+
+  <main class="page">
+    <div class="opening-layout">
+
+      <!-- Gallery cycles through images/1.jpeg to images/21.jpeg -->
+      <aside class="gallery-rail">
+        <button class="postcard-stack" id="gallery-button"
+          type="button"
+          aria-label="Show next gallery postcard"
+          aria-describedby="gallery-help">
+          <span class="gallery-card">
+            <img id="gallery-image"
+              src="images/1.jpeg"
+              alt="Photo 1 from my gallery">
+
+            <span class="postcard-caption">
+              <span id="gallery-count">01 / 21</span>
+            </span>
+          </span>
+        </button>
+
+        <p class="gallery-help" id="gallery-help">
+          just some pictures from my gallery...
         </p>
-        <!-- Edit the book entries below to update your shelf. -->
-        <section class="reading-year" aria-labelledby="currently-reading">
-          <h3 id="currently-reading">Currently reading</h3>
-          <div class="reading-group currently-reading">
-            <ul class="notes-book-list">
-              <li>
-                <span class="book-title">Acts of God</span
-                ><span class="book-author">Kanan Gill</span>
-              </li>
-              <li>
-                <span class="book-title">The Education of Yuri</span
-                ><span class="book-author">Jerry Pinto</span>
-              </li>
-              <li>
-                <span class="book-title">The Stream of Life</span
-                ><span class="book-author">Clarice Lispector</span>
-              </li>
-              <li>
-                <span class="book-title">Butter</span
-                ><span class="book-author">Asako Yuzuki</span>
-              </li>
-              <li>
-                <span class="book-title">Devotions</span
-                ><span class="book-author">Mary Oliver</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section class="reading-year" aria-labelledby="year-2026">
-          <h3 id="year-2026">2026</h3>
-          <div class="reading-group finished-reading">
-            <h4>Finished</h4>
-            <ul class="notes-book-list">
-              <li>
-                <span class="book-title"
-                  >Drive Your Plow Over the Bones of the Dead</span
-                ><span class="book-author">Olga Tokarczuk</span>
-              </li>
-              <li>
-                <span class="book-title">Even If You Beat Me</span
-                ><span class="book-author">Sally Rooney</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section class="reading-year" aria-labelledby="year-2025">
-          <h3 id="year-2025">2025</h3>
-          <div class="reading-group finished-reading">
-            <h4>Finished</h4>
-            <ul class="notes-book-list">
-              <li>
-                <span class="book-title">Upstream</span
-                ><span class="book-author">Mary Oliver</span>
-              </li>
-              <li>
-                <span class="book-title">The Stranger</span
-                ><span class="book-author">Albert Camus</span>
-              </li>
-              <li>
-                <span class="book-title">Ghachar Ghochar</span
-                ><span class="book-author">Vivek Shanbhag</span>
-              </li>
-              <li>
-                <span class="book-title">Kitchen</span
-                ><span class="book-author">Banana Yoshimoto</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section class="reading-year" aria-labelledby="year-2024">
-          <h3 id="year-2024">2024</h3>
-          <div class="reading-group finished-reading">
-            <h4>Finished</h4>
-            <ul class="notes-book-list">
-              <li>
-                <span class="book-title">How to Build a Car</span
-                ><span class="book-author">Adrian Newey</span>
-              </li>
-              <li>
-                <span class="book-title">Anxious People</span
-                ><span class="book-author">Fredrik Backman</span>
-              </li>
-              <li>
-                <span class="book-title">Memory Man</span
-                ><span class="book-author">David Baldacci</span>
-              </li>
-              <li>
-                <span class="book-title">My Year of Rest and Relaxation</span
-                ><span class="book-author">Ottessa Moshfegh</span>
-              </li>
-              <li>
-                <span class="book-title">Embroideries</span
-                ><span class="book-author">Marjane Satrapi</span>
-              </li>
-              <li>
-                <span class="book-title">Men Explain Things to Me</span
-                ><span class="book-author">Rebecca Solnit</span>
-              </li>
-              <li>
-                <span class="book-title">The God of Small Things</span
-                ><span class="book-author">Arundhati Roy</span>
-              </li>
-              <li>
-                <span class="book-title"
-                  >Only Dull People Are Brilliant at Breakfast</span
-                ><span class="book-author">Oscar Wilde</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section class="reading-year" aria-labelledby="year-2023">
-          <h3 id="year-2023">2023</h3>
-          <div class="reading-group finished-reading">
-            <h4>Finished</h4>
-            <ul class="notes-book-list">
-              <li>
-                <span class="book-title">The Midnight Library</span
-                ><span class="book-author">Matt Haig</span>
-              </li>
-              <li>
-                <span class="book-title"
-                  >What I Talk About When I Talk About Running</span
-                ><span class="book-author">Haruki Murakami</span>
-              </li>
-              <li>
-                <span class="book-title">I Have More Souls Than One</span
-                ><span class="book-author">Fernando Pessoa</span>
-              </li>
-              <li>
-                <span class="book-title">The Palace of Illusions</span
-                ><span class="book-author">Chitra Banerjee Divakaruni</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section class="reading-year" aria-labelledby="year-2022">
-          <h3 id="year-2022">2022</h3>
-          <div class="reading-group finished-reading">
-            <h4>Finished</h4>
-            <ul class="notes-book-list">
-              <li>
-                <span class="book-title"
-                  >The Lord of the Rings: The Fellowship of the Ring</span
-                ><span class="book-author">J. R. R. Tolkien</span>
-              </li>
-              <li>
-                <span class="book-title">Em and the Big Hoom</span
-                ><span class="book-author">Jerry Pinto</span>
-              </li>
-              <li>
-                <span class="book-title">The Metamorphosis</span
-                ><span class="book-author">Franz Kafka</span>
-              </li>
-              <li>
-                <span class="book-title">Ballad for Sophie</span
-                ><span class="book-author"
-                  >Filipe Melo and Juan Cavia · Graphic novel</span
-                >
-              </li>
-              <li>
-                <span class="book-title">To the Lighthouse</span
-                ><span class="book-author">Virginia Woolf</span>
-              </li>
-              <li>
-                <span class="book-title">A Room of One&#x27;s Own</span
-                ><span class="book-author">Virginia Woolf</span>
-              </li>
-              <li>
-                <span class="book-title">At the Existentialist Café</span
-                ><span class="book-author">Sarah Bakewell</span>
-              </li>
-              <li>
-                <span class="book-title">The Machine Stops</span
-                ><span class="book-author">E. M. Forster</span>
-              </li>
-              <li>
-                <span class="book-title">Cream</span
-                ><span class="book-author">Haruki Murakami</span>
-              </li>
-              <li>
-                <span class="book-title">Men Without Women</span
-                ><span class="book-author">Haruki Murakami</span>
-              </li>
-              <li>
-                <span class="book-title"
-                  >The Sandman: Preludes &amp; Nocturnes</span
-                >
-              </li>
-              <li>
-                <span class="book-title">Ikigai</span
-                ><span class="book-author"
-                  >Héctor García and Francesc Miralles</span
-                >
-              </li>
-              <li>
-                <span class="book-title">After Dark</span
-                ><span class="book-author">Haruki Murakami</span>
-              </li>
-              <li>
-                <span class="book-title">Figuring</span
-                ><span class="book-author">Maria Popova</span>
-              </li>
-              <li>
-                <span class="book-title">The Prophet</span
-                ><span class="book-author">Kahlil Gibran</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section class="reading-year" aria-labelledby="year-2021">
-          <h3 id="year-2021">2021</h3>
-          <div class="reading-group finished-reading">
-            <h4>Finished</h4>
-            <ul class="notes-book-list">
-              <li>
-                <span class="book-title">The Hobbit</span
-                ><span class="book-author">J. R. R. Tolkien</span>
-              </li>
-              <li>
-                <span class="book-title">Kafka on the Shore</span
-                ><span class="book-author">Haruki Murakami</span>
-              </li>
-              <li>
-                <span class="book-title">The Trial</span
-                ><span class="book-author">Franz Kafka</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section class="reading-year" aria-labelledby="year-2020">
-          <h3 id="year-2020">2020</h3>
-          <div class="reading-group finished-reading">
-            <h4>Finished</h4>
-            <ul class="notes-book-list">
-              <li>
-                <span class="book-title">Digital Fortress</span
-                ><span class="book-author">Dan Brown</span>
-              </li>
-              <li>
-                <span class="book-title">The Picture of Dorian Gray</span
-                ><span class="book-author">Oscar Wilde</span>
-              </li>
-              <li>
-                <span class="book-title">If God Was a Banker</span
-                ><span class="book-author">Ravi Subramanian</span>
-              </li>
-              <li>
-                <span class="book-title">Girl, Woman, Other</span
-                ><span class="book-author">Bernardine Evaristo</span>
-              </li>
-              <li>
-                <span class="book-title">The Death Relic</span
-                ><span class="book-author">Chris Kuzneski</span>
-              </li>
-              <li>
-                <span class="book-title">The Bell Jar</span
-                ><span class="book-author">Sylvia Plath</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </div>
-      <div class="notes-bottom">
-        <span>A shelf in progress</span><span>Esc to close</span>
-      </div>
-    </dialog>
 
-    <script src="site.js" defer></script>
-    <script src="home.js" defer></script>
-  </body>
+        <p class="sr-only" id="gallery-status" aria-live="polite"></p>
+      </aside>
+
+      <div class="center-column">
+        <header class="intro">
+          <nav class="section-nav" aria-label="Page sections">
+            <a href="#writing" aria-current="location">Writing</a>
+            <span aria-hidden="true">|</span>
+            <a href="#projects">Projects</a>
+            <span aria-hidden="true">|</span>
+            <a href="#about">About</a>
+          </nav>
+
+          <h1>Breachy-270</h1>
+
+          <p class="intro-copy">
+            <I>Takes from a shelf with shaky stability because change is the only constant...</I>
+          </p>
+        </header>
+
+        <!-- WRITING -->
+        <section id="writing" class="content-section writing-section"
+          aria-labelledby="writing-title">
+          <div class="section-heading">
+            <h2 id="writing-title">Writing</h2>
+            <span>Notes & essays</span>
+          </div>
+
+          <div class="writing-list">
+            <a class="writing-link" href="writeup/essay1.html">
+              <span class="writing-type">Essay</span>
+              <h3>The Garden of Forking Paths vs. An Onion</h3>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="writing-link" href="writeup/ctf-writeup.html">
+              <span class="writing-type">CTF write-up</span>
+              <h3>Sisterhood of the Traveling Packets</h3>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="writing-link" href="writeup/code-review.html">
+              <span class="writing-type">Security</span>
+              <h3>How to catch bugs online (fast)?</h3>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="content-section"
+          aria-labelledby="projects-title">
+          <div class="section-heading">
+            <h2 id="projects-title">Projects</h2>
+            <span>Built & building</span>
+          </div>
+
+          <div class="project-grid">
+
+             <a class="project-card" href="https://github.com/png270/breakfix"
+              target="_blank" rel="noopener noreferrer">
+              <span class="project-kind">AI Agent ↗</span>
+              <h3>Break My Fix</h3>
+              <p>
+                Building a security agent to validate AI generated security patches.
+              </p>
+              <span class="project-tools">Neatlogs · Security Testing</span>
+            </a>
+
+            <a class="project-card" href="https://github.com/png270/aws-infra"
+              target="_blank" rel="noopener noreferrer">
+              <span class="project-kind">DevOps + Security ↗</span>
+              <h3>AWS Infrastructure Hardening</h3>
+              <p>
+                Provisioned AWS infrastructure using Terraform with built in CI/CD checks. Automated terraform code scanning using Checkov.
+              </p>
+              <span class="project-tools">AWS · Terraform · Checkov</span>
+            </a>
+
+            <a class="project-card" href="projects/Final_Paper.pdf"
+              target="_blank" rel="noopener noreferrer">
+              <span class="project-kind">Graduate research ↗</span>
+              <h3>Cascading Risks in Open-Banking APIs</h3>
+              <p>
+                Exploring systemic risk through a microservices
+                testbed and STRIDE threat modeling.
+              </p>
+              <span class="project-tools">FastAPI · Docker · Keycloak</span>
+            </a>
+
+            <a class="project-card"
+              href="https://github.com/png270/secops-lab"
+              target="_blank" rel="noopener noreferrer">
+              <span class="project-kind">Security lab ↗</span>
+              <h3>SecOps Lab</h3>
+              <p>
+                Simulated attacks, detection rules, and
+                MITRE ATT&amp;CK mappings.
+              </p>
+              <span class="project-tools">OWASP Juice Shop · Docker · ELK</span>
+            </a>
+
+            <a class="project-card"
+              href="https://github.com/png270/iot-mitre-threat-mapping"
+              target="_blank" rel="noopener noreferrer">
+              <span class="project-kind">Machine learning ↗</span>
+              <h3>IoT Intrusion Detection</h3>
+              <p>
+                Comparing models for intrusion detection and
+                mapping their findings to MITRE techniques.
+              </p>
+              <span class="project-tools">Python · PyTorch · Pandas</span>
+            </a>
+
+            <a class="project-card"
+              href="https://github.com/png270/noshell"
+              target="_blank" rel="noopener noreferrer">
+              <span class="project-kind">Currently building ↗</span>
+              <h3>NoShell</h3>
+              <p>
+                A Linux-style CLI that does nothing.
+                Powered by No-as-a-Service.
+              </p>
+              <span class="project-tools">Go</span>
+            </a>
+
+            <a class="project-card"
+              href="https://github.com/png270/Swift-Vote"
+              target="_blank" rel="noopener noreferrer">
+              <span class="project-kind">Full-Stack Web Application ↗</span>
+              <h3>SwiftVote</h3>
+              <p>
+                A blockchain-based voting web-application with
+                smart contract vote recording.
+              </p>
+              <span class="project-tools">Django · Solidity · Docker</span>
+            </a>
+
+            <a class="project-card"
+              href="https://github.com/png270/watch_guard_fw_parser"
+              target="_blank" rel="noopener noreferrer">
+              <span class="project-kind">Automation ↗</span>
+              <h3>WatchGuard Configuration Parser</h3>
+              <p>
+                Making firewall configurations easier to
+                inspect and audit for drift.
+              </p>
+              <span class="project-tools">Python · Pandas · Streamlit</span>
+            </a>
+          </div>
+
+          <!-- SKILLS -->
+          <section class="skills-section" aria-labelledby="skills-title">
+  <div class="section-heading">
+    <h2 id="skills-title">Skills & Tools</h2>
+    <span>What I work with</span>
+  </div>
+
+    <div style="margin-bottom: 10px;"><p class="certifications">
+    <span><h4>Skills</h4></span>
+    Web Application Security | Network Security | DevOps/DevSecOps | Threat Modeling (STRIDE/PASTA) | Secure Code Review | Security Automation | Incident Response | Reverse Engineering | Threat Detection and Mitigation.
+  </p></div>
+
+  <div style="margin-bottom: 10px;"><p class="certifications">
+    <span><h4>Certifications</h4></span>
+    AWS Certified Solutions Architect - Associate (In Progress) · AWS Certified Cloud Practitioner · CompTIA Security+ · CEH v11
+  </p></div>
+  
+
+  <!-- Local symbols for tools without an external brand logo -->
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="skill-shield" viewBox="0 0 24 24">
+      <path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6l-8-3Z"/>
+      <path d="m8 12 3 3 5-6"/>
+    </symbol>
+
+    <symbol id="skill-terminal" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="16" rx="2"/>
+      <path d="m7 9 3 3-3 3m6 0h4"/>
+    </symbol>
+
+    <symbol id="skill-network" viewBox="0 0 24 24">
+      <rect x="9" y="3" width="6" height="5" rx="1"/>
+      <rect x="2" y="16" width="6" height="5" rx="1"/>
+      <rect x="16" y="16" width="6" height="5" rx="1"/>
+      <path d="M12 8v4M5 16v-4h14v4"/>
+    </symbol>
+
+    <symbol id="skill-search" viewBox="0 0 24 24">
+      <circle cx="10" cy="10" r="6"/>
+      <path d="m15 15 6 6M7 10h6m-3-3v6"/>
+    </symbol>
+  </svg>
+
+  <div class="skills-groups">
+
+    <div class="skill-group">
+      <h3>Programming & Scripting</h3>
+      <ul class="skill-logos">
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+            alt="" loading="lazy">
+          <span>Python</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg"
+            alt="" loading="lazy">
+          <span>Go</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg"
+            alt="" loading="lazy">
+          <span>C</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+            alt="" loading="lazy">
+          <span>C++</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg"
+            alt="" loading="lazy">
+          <span>Bash</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg"
+            alt="" loading="lazy">
+          <span>PowerShell</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Web Development - Full-Stack + Backend</h3>
+      <ul class="skill-logos">
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+            alt="" loading="lazy">
+          <span>JavaScript</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+            alt="" loading="lazy">
+          <span>TypeScript</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+            alt="" loading="lazy">
+          <span>HTML</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+            alt="" loading="lazy">
+          <span>CSS</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+            alt="" loading="lazy">
+          <span>Bootstrap</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg"
+            alt="" loading="lazy">
+          <span>Django</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg"
+            alt="" loading="lazy">
+          <span>Angular</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Cloud and DevOps</h3>
+      <ul class="skill-logos">
+        <li>
+          <img class="wide-logo"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+            alt="" loading="lazy">
+          <span>AWS</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+            alt="" loading="lazy">
+          <span>Docker</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg"
+            alt="" loading="lazy">
+          <span>Kubernetes</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg"
+            alt="" loading="lazy">
+          <span>Terraform</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg"
+            alt="" loading="lazy">
+          <span>Ansible</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg"
+            alt="" loading="lazy">
+          <span>Jenkins</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+            alt="" loading="lazy">
+          <span>Git</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg"
+            alt="" loading="lazy">
+          <span>GitHub Actions</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Operating Systems I'm Familiar With</h3>
+      <ul class="skill-logos">
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"
+            alt="" loading="lazy">
+          <span>Linux</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg"
+            alt="" loading="lazy">
+          <span>Ubuntu</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.simpleicons.org/kalilinux/111111"
+            alt="" loading="lazy">
+          <span>Kali Linux</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows11/windows11-original.svg"
+            alt="" loading="lazy">
+          <span>Windows</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Firewalls & Detection</h3>
+      <ul class="skill-logos">
+        <li>
+          <svg class="skill-symbol" aria-hidden="true">
+            <use href="#skill-shield"></use>
+          </svg>
+          <span>Imperva WAF</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.simpleicons.org/cisco/111111"
+            alt="" loading="lazy">
+          <span>Cisco ASA</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.simpleicons.org/splunk/111111"
+            alt="" loading="lazy">
+          <span>Splunk</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.simpleicons.org/elastic/111111"
+            alt="" loading="lazy">
+          <span>ELK</span>
+        </li>
+        <li>
+          <svg class="skill-symbol" aria-hidden="true">
+            <use href="#skill-shield"></use>
+          </svg>
+          <span>Wazuh</span>
+        </li>
+        <li>
+          <svg class="skill-symbol" aria-hidden="true">
+            <use href="#skill-network"></use>
+          </svg>
+          <span>Zeek</span>
+        </li>
+        <li>
+          <svg class="skill-symbol" aria-hidden="true">
+            <use href="#skill-terminal"></use>
+          </svg>
+          <span>iptables</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Pentesting & Reverse Engineering</h3>
+      <ul class="skill-logos">
+        <li>
+          <img
+            src="https://cdn.simpleicons.org/burpsuite/111111"
+            alt="" loading="lazy">
+          <span>Burp Suite</span>
+        </li>
+        <li>
+          <img
+            src="https://cdn.simpleicons.org/metasploit/111111"
+            alt="" loading="lazy">
+          <span>Metasploit</span>
+        </li>
+        <li>
+          <svg class="skill-symbol" aria-hidden="true">
+            <use href="#skill-network"></use>
+          </svg>
+          <span>Nmap</span>
+        </li>
+        <li>
+          <svg class="skill-symbol" aria-hidden="true">
+            <use href="#skill-shield"></use>
+          </svg>
+          <span>OWASP ZAP</span>
+        </li>
+        <li>
+          <svg class="skill-symbol" aria-hidden="true">
+            <use href="#skill-search"></use>
+          </svg>
+          <span>Ghidra</span>
+        </li>
+        <li>
+          <svg class="skill-symbol" aria-hidden="true">
+            <use href="#skill-search"></use>
+          </svg>
+          <span>IDA Pro</span>
+        </li>
+        <li>
+          <svg class="skill-symbol" aria-hidden="true">
+            <use href="#skill-terminal"></use>
+          </svg>
+          <span>x64dbg</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+</section>
+</div>
+</div>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="about-section" aria-labelledby="about-title">
+
+      <div class="chapter about-intro side-left">
+        <aside class="chapter-side profile-side">
+          <figure class="profile-postcard">
+            <img src="about/profile.png" alt="Siddhi">
+            <figcaption>Hi, I’m Siddhi!</figcaption>
+          </figure>
+        </aside>
+
+        <div class="essay">
+          <h2 class="about-title" id="about-title">About Me?</h2>
+          <p style="font-size: 10px;"><i>TL;DR: I'm Siddhi, a Security Engineer with ~3 yrs of experience in web application security, incident response and automation. I'm a computer science graduate and hold a Master's degree in Cybersecurity from Penn State. Spent 2+ years at IBM, secured 1000+ web applications, handled more than 200 incidents and built automation for firewalls. Also worked on maritime security at BSM, built internal tools, automated IR, conducted forensic investigation and developed a config management proof-of-concept. I love participating in CTFs and Hackathons. I experiment with security and build stuff when I'm bored. Outside of security, you can find me running marathons, screaming during F1 races or quietly reading in a corner.</i></p>
+          <p>
+            You’re probably reading this because you got curious about
+            who I am? It's quite weird to write about yourself in glaring
+            detail especially as someone who’s into cybersecurity. I can
+            immediately think of ways in which the information
+            I’d share here can be used by someone to send me a phishing
+            email or use it to guess my passwords. Anyways, I’m writing
+            this so you can get a clear idea of who I am professionally
+            and little about who I am personally. Little because rest
+            is mystery and you’ll have to figure that out yourself!
+          </p>
+        </div>
+      </div>
+
+      <!-- UNDERGRAD -->
+      <section class="chapter side-left" aria-labelledby="cliff-title">
+        <aside class="chapter-side">
+          <figure class="small-postcard">
+            <!-- Replace this div with your photo: -->
+            <img src="logo/Nu.jpeg"
+                 alt="My undergraduate days at NIIT University"
+                 loading="lazy">
+
+           
+            
+          </figure>
+
+          <div class="timeline-summary">
+            <p class="summary-date">August 2018 — July 2022</p>
+            <h4>NIIT University</h4>
+            <ul>
+              <li>Bachelor of Technology in Computer Science and Engineering</li>
+              <li>Specialization - Cybersecurity</li>
+              <li>Smart India Hackathon 2020 - Winner</li>
+              <li>Smart India Hackathon 2019 - First-Runner Up</li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="essay">
+          <h3 id="cliff-title">Falling 'on' a cliff</h3>
+          <p>
+            Just remembered I said I’m into cybersecurity. So here’s a
+            glimpse of how I fell for it. It was a brief discussion with
+            my friends during my undergrad days when they were debating
+            the specialization they’d want to choose for their senior
+            year. I heard about their options and cybersecurity stuck
+            with me purely because of the chaos it could entail and how
+            you needed to be on your feet all the damn time with changing
+            technology. But it also goes back to the time when I first
+            watched Mission Impossible I where the tech guys typed
+            aggressively on the keyboard and managed to keep Ethan Hunt
+            out of trouble. I called it out because you cannot possibly
+            hack that fast but also wondered if that could be years of
+            practice and perfecting the craft. It was pure curiosity
+            at that time.
+          </p>
+          <img src="logo/mi.gif" style="display: block; width: 300px; max-width: 100%; height: auto; margin: 20px auto;">
+        </div>
+      </section>
+
+      <!-- IBM -->
+      <section class="chapter side-right" aria-labelledby="sprint-title">
+        <aside class="chapter-side">
+          <figure class="small-postcard">
+            <img src="logo/ibm.png"
+                 alt="IBM, Bangalore"
+                 loading="lazy">
+          
+          </figure>
+
+          <div class="timeline-summary">
+            <p class="summary-date">January 2022 — May 2024</p>
+            <h4>IBM</h4>
+            <ul>
+              <li>Security Analyst [Internship → Full-time]</li>
+              <li>IBM Consulting - MSSP (Managed Security Services Provider)</li>
+              <li>Healthcare Client</li>
+              <li>Managed Imperva Cloud WAF</li>
+              <li>Resolved incidents, wrote custom detection rules, rotated SSL certificates, and enforced RBAC.</li>
+              <li>Automated firewall-upgrade validation using Python.</li>
+              <li>Turned operational tasks into structured, repeatable procedures.</li>
+
+            </ul>
+          </div>
+        </aside>
+
+        <div class="essay">
+          <h3 id="sprint-title">The Sprint</h3>
+          <p>
+            Fast forward to a few years from then, I was interning at IBM
+            as a Security Analyst. I was blown away by the kind of work
+            they showed us they were doing. Big tools, big names in the
+            security industry as partners, clients and projects was all
+            too overwhelming for me to choose a specialization within
+            security. This internship was where I discovered how you can
+            just automate stuff and make your life easier. I wrote
+            scripts to verify firewall upgrades. My hands-on work,
+            getting feedback from a manager on where I can improve,
+            what goes into writing a good script and the trade-offs
+            you need to consider was an experience I could never forget.
+            It pretty much shaped me into the builder I am today.
+            This internship turned into a full-time role at IBM.
+          </p>
+          <img src="logo/ibm.jpeg" style="display: block; width: 300px; max-width: 100%; height: auto; margin: 20px auto;">
+
+          <p>
+            It was a client-facing technical consulting role within
+            security which made me realize how much I liked brainstorming
+            a solution as well as improving a repetitive process until
+            it almost reaches a state where you have nothing to pick
+            apart. It was so scary because the project was just taken
+            over from the clients. Everything was being set-up and
+            nothing was established. I was made aware of how the change
+            management process worked, how incidents were handled but
+            you don’t get much of it unless you experiment with it
+            hands-on. The best part about all of this is how you can
+            think of so many ways things could go wrong and what you
+            could do to prevent it. But the fact is, it never goes wrong
+            the way you expected it to. It was always something new,
+            something you had to brainstorm with your team and realize
+            “oops we didn’t make an SOP for this!”. I enjoyed this
+            process a lot and thought I was built for this environment
+            where you had to figure things out, design a system from
+            scratch and iterate over it to perfect it. Until one day
+            an incident call made me question if I knew enough to deal
+            with the leadership team who sat there with years of
+            experience on their hands. This thought made me open the
+            documentations, blogs, paper and every other resource that
+            could make me “technically genius”. It was a futile attempt
+            but the desire in me to learn about everything didn’t go away.
+          </p>
+        </div>
+      </section>
+
+      <!--
+        HARD RESET:
+        One chapter, one continuous essay, two independent sidebars.
+        The BSM paragraph is no longer inside a separate grid.
+      -->
+      <section class="chapter hard-reset" aria-labelledby="reset-title">
+
+        <aside class="chapter-side penn-sidebar">
+          <figure class="small-postcard">
+            <img src="logo/penns.jpeg"
+                 alt="Penn State"
+                 loading="lazy">
+            
+            </div>
+           
+          </figure>
+
+          <div class="timeline-summary">
+            <p class="summary-date">August 2024 — May 2026</p>
+            <h4>Pennsylvania State University</h4>
+            <ul>
+              <li>Master of Science in Cybersecurity Analytics and Operations</li>
+              <li>GPA: 3.97 / 4.00</li>
+              <li>Competitive Cybersecurity Organization (CCSO)</li>
+              <li>Flare Darkroom - Darkweb Threat Hunting Competition - Top 32% | 2026 </li>
+              <li>Sisterhood of the Traveling Packets CTF | 2026</li>
+              <li>Wicked6 Cyber Games - 4th Place | 2026</li>
+              <li>Hack The Box - Red v Blue CTF - Top 10 | 2026</li>
+              <li>BSides NYC Pros vs Joes - 1st Place | 2025</li>
+              <li>CTF @CIT 2025 - Top 33% | 2025</li>
+              <li>NCAE Cyber Games - Regionals | 2025</li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="essay">
+          <h3 id="reset-title">Hard Reset</h3>
+
+          <p>
+            I decided I needed to get better at what I do, study more,
+            build more and hence, I left everything to become a master
+            of all things security. My curiosity made me travel, it
+            brought me to a place where I competed, built and also made
+            me more confident about the things I could do. Penn State
+            was that chapter. I was challenged on everything I knew
+            from day one. I couldn’t get buffer overflow exploits right.
+            MITM exploitation was also a challenge of its own. From
+            desperately studying Computer Security, to diving into AI
+            security, I with some more efforts finally learnt to overflow
+            buffers in C, perform manual exploitation of web based
+            vulnerabilities and learnt about backdoor attacks and model
+            poisoning. I also had the chance to meet wonderful people
+            at BSides NYC as well as during CTF competitions that
+            I participated in.
+          </p>
+
+          <img src="logo/bsides.jpeg" style="display: block; width: 300px; max-width: 100%; height: auto; margin: 20px auto;">
+
+          <p>
+            During the summer between my graduate semesters, I got a
+            chance to explore how cybersecurity interacts within the
+            maritime industry. As an only intern, I had an amazing time
+            working with the IT team to understand networking onboard
+            vessels, OT architecture constraints in the industry and
+            incident response process that defines overall safety of
+            the crew and the cargo onboard. I remember doing a deep dive
+            on the NotPetya incident while drafting a proposal to improve
+            IR processes. Talking to the team at BSM, I found some really
+            interesting problems I could solve with automation. I build
+            a parser to detect firewall policy changes to reduce errors
+            caused by upgrades. This felt like an extension of work
+            I did at IBM packaged into a proper internal tool. While
+            learning about how incidents are resolved that occur in
+            the middle of the pacific ocean with no one around to help,
+            I decided to build a proof-of-concept using Ansible that
+            would keep running PowerShell scripts at regular intervals
+            and give updates on system baselines. If there’s any
+            deviation, the team would get an email alert to triage
+            before it becomes an incident. I loved how cybersecurity
+            in the maritime industry keeps you on your feet while
+            you’re also constrained with the amount of tech you can
+            deploy due to poor connectivity. Sometimes, it’s all
+            about simplicity.
+          </p>
+
+          <p>
+            At this point, I feel like I have my fundamentals right but
+            the curiosity still hasn’t left me. I’ve continued
+            experimenting with things that interest me. I’m currently
+            learning about AI in security and trying to find problems
+            that allow me to build. I could be anxious about how things
+            can break right now, but the builder in me keeps building.
+          </p>
+        </div>
+
+        <aside class="chapter-side bsm-sidebar">
+          <figure class="small-postcard text-postcard">
+            <img src="logo/bsmm.png"
+                 alt="BSM"
+                 loading="lazy">
+          </figure>
+
+          <div class="timeline-summary">
+            <p class="summary-date">June — August 2025</p>
+            <h4>BSM</h4>
+            <ul>
+              <li>Security Engineer Intern</li>
+              <li>Maritime Industry</li>
+              <li>Built a firewall policy checker in Python</li>
+              <li>Developed Ansible + PowerShell monitoring proof of concept</li>
+              <li>Incident Response Automation - Playbooks + PowerShell Scripts</li>
+              <li>Digital Forensics</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <!-- PIT STOP: no postcards -->
+      <section class="chapter text-only" aria-labelledby="pitstop-title">
+        <div class="essay">
+          <h3 id="pitstop-title">The Pit Stop</h3>
+
+          <p>
+            Over the years, while I have learnt a lot, some observations
+            I made haven’t left me and I’ve grown to value them
+            personally and professionally -
+          </p>
+
+          <ul class="essay-observations">
+            <li>
+              <strong>Visibility is everything.</strong>
+              If there’s one thing incident response has taught me,
+              is that you can’t investigate what you can’t see. Missing
+              logs, incomplete telemetry and unclear timestamps make
+              it extremely difficult to debug what went wrong. I’ve
+              started to apply this principle to what I build too.
+              Whether it's a security tool or an AI agent, I want to
+              understand what it's doing, why it's doing it, and when
+              something goes wrong. Interestingly, this applies to real
+              life as well. You need to put yourself out there to be
+              discovered. There’s gatekeeping and then there’s hiding.
+              You need to choose wisely.
+            </li>
+
+            <li>
+              <strong>Talking it out makes it make sense.</strong>
+              When in doubt about what to choose or how to go about
+              accomplishing something, it is always a good idea to talk
+              it out with someone. Some of my best ideas have come from
+              conversations I had with people around. This also made
+              me realize that if you’re confused about what tech stack
+              you should work with, it's quite helpful to talk to your
+              colleague or simply an LLM. It’s because when you start
+              putting what you’re thinking into words, things become
+              clearer. It’s communication 101, it helps you identify
+              where you’re lacking and why you need an alternate POV.
+            </li>
+
+            <li>
+              <strong>Knowing what to build, when and why.</strong>
+              You’re often going to come across problems you’d want
+              to solve. Some problems, however, don't need to be solved.
+              I know it’s counter-intuitive. But I think knowing what
+              to build because a problem getting solved can produce
+              results is better than building something just because
+              everyone is. Creativity in your work is more important
+              than replicating what already exists. But it’s not a bad
+              idea if you can take something up and make it 100x better
+              because you found where the bottlenecks are. Fight me
+              on this because I’m still figuring this out.
+            </li>
+          </ul>
+
+          <p>
+            I want to become the kind of engineer who obsesses over
+            their craft, keeps doing it over and over, in many different
+            ways until they land on something so perfect yet it is full
+            of flaws in their own eyes. I want to understand what works
+            and what breaks, I want to know how things can go wrong
+            and create something which (may or) may not wither with time.
+          </p>
+        </div>
+      </section>
+
+      <!-- FLOW: no postcards -->
+      <section class="chapter text-only" aria-labelledby="flow-title">
+        <div class="essay">
+          <h3 id="flow-title">Flow vis-à-vis...</h3>
+
+          <p>
+            What kept me going outside of all the work I did was
+            running and channeling my inner Van Gogh at times.
+            Sometimes…No, actually, most weekends, I look forward
+            to cars going in circles for hours on tracks all around
+            the world. Ask me about my favorite team or the driver
+            and I could talk to you for hours. Remember what Sonny
+            Hayes said about being in a flow state in the F1 Movie -
+            <i>“It's rare, but sometimes, there's this moment in the car
+            where everything goes quiet, my heartbeat slows, it's
+            peaceful, and I can see everything, and no one, no one
+            can touch me. And I am chasing that moment every time I get
+            in the car. I don't know when I'll find it again, but, man,
+            I want to. I want to. 'Cause in that moment, I'm flying”?</i>
+            That’s me when I run, by the way.
+          </p>
+
+          <img src="logo/f1.gif" style="display: block; width: 300px; max-width: 100%; height: auto; margin: 20px auto;">
+
+          <p>
+            There’s a moment when you reach your flow state with the
+            music in the background, eyes fixed on the road and your
+            legs moving at speed in a rhythm you just created. Even
+            Haruki Murakami said “almost” the same thing in his book
+            <em>What I Talk About When I Talk About Running</em> -
+            “To keep on going, you have to keep up the rhythm.”
+          </p>
+
+          <p>
+            So if I’m not running, you can find me in a corner, reading
+            some very interesting, at times very weird books. If you
+            have tips on how not to give up reading LOTR after
+            <em>The Fellowship of the Ring</em>, please let me know!
+          </p>
+
+
+          <p class="closing-note">
+            If you made it this far, thank you for reading!
+          </p>
+          <img src="logo/eyes.jpeg" style="display: block; width: 300px; max-width: 100%; height: 250px; margin: 20px auto;">
+        </div>
+      </section>
+    </section>
+
+    <footer class="page-footer">
+      <span>Siddhi Lad</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </main>
+
+  <script src="portfolio.js" defer></script>
+</body>
 </html>

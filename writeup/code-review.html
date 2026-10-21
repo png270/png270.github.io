@@ -1,115 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <title>How to catch bugs?</title>
-    <link rel="stylesheet" href="../site.css" />
-    <link rel="stylesheet" href="notes.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to catch bugs online (fast)? — Siddhi</title>
+  <link rel="stylesheet" href="article.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#article">Skip to article</a>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="linkedin-icon" viewBox="0 0 24 24">
+      <path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3v12h-3V9Zm5 0h3v1.6C12.2 9.5 13.2 9 14.8 9c3.1 0 4.7 2 4.7 5.5V21h-3v-6c0-2-.7-3-2.2-3-1.6 0-2.8 1.2-2.8 3.2V21h-3V9Z"/>
+    </symbol>
 
-  <body>
-    <main class="main-container notes-window">
-      <header class="window-bar">
-        <div class="window-controls" aria-label="Decorative window controls">
-          <button
-            type="button"
-            class="window-dot dot-red"
-            aria-label="Close (decorative)"
-          ></button
-          ><button
-            type="button"
-            class="window-dot dot-yellow"
-            aria-label="Minimize (decorative)"
-          ></button
-          ><button
-            type="button"
-            class="window-dot dot-green"
-            aria-label="Maximize (decorative)"
-          ></button>
-        </div>
-        <nav class="window-menu" aria-label="Main navigation">
-          <a href="../index.html">Home</a
-          ><a href="../projects/projects.html">Projects</a
-          ><a href="../about/about.html">About</a>
+    <symbol id="mail-icon" viewBox="0 0 24 24">
+      <path d="M3 5h18v14H3V5Zm2 2v.5l7 5 7-5V7H5Zm14 10V10l-7 5-7-5v7h14Z"/>
+    </symbol>
+
+    <symbol id="github-icon" viewBox="0 0 24 24">
+      <path d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.5v-2.1c-3.4.7-4.1-1.4-4.1-1.4-.5-1.3-1.2-1.6-1.2-1.6-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.6-1.4-5.6-6.2 0-1.4.5-2.5 1.2-3.3-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.6 1.7.2 3 .1 3.3.8.8 1.2 1.9 1.2 3.3 0 4.8-2.9 5.9-5.6 6.2.4.4.8 1.1.8 2.2V22c0 .3.2.6.8.5A11.1 11.1 0 0 0 12 .9Z"/>
+    </symbol>
+
+    <symbol id="x-icon" viewBox="0 0 24 24">
+      <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.9-9L.8 2h6.5l4.5 6.7L18.9 2ZM17.9 20h1.7L6.3 3.9H4.5L17.9 20Z"/>
+    </symbol>
+  </svg>
+  <aside class="contact-rail" aria-label="Contact">
+    <p class="eyebrow">Elsewhere</p>
+
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/siddhi-lad/"
+        target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true"><use href="#linkedin-icon"></use></svg>
+        LinkedIn <span aria-hidden="true">↗</span>
+      </a>
+
+      <a href="mailto:siddhi.lad00@gmail.com">
+        <svg aria-hidden="true"><use href="#mail-icon"></use></svg>
+        Email <span aria-hidden="true">↗</span>
+      </a>
+
+      <a href="https://github.com/png270"
+        target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true"><use href="#github-icon"></use></svg>
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+
+
+      <a href="https://x.com/apracticaln00b"
+        target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true"><use href="#x-icon"></use></svg>
+        X <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+
+  </aside>
+  <main class="page">
+    <div class="article-layout">
+      <div class="reading-column">
+        <nav class="section-nav" aria-label="Main navigation">
+          <a href="../index.html#writing" class="active">Writing</a>
+          <span aria-hidden="true">|</span>
+          <a href="../index.html#projects">Projects</a>
+          <span aria-hidden="true">|</span>
+          <a href="../index.html#about">About</a>
         </nav>
-        <span class="window-title">Notes</span>
-      </header>
-      <div class="notes-toolbar">
-        <div class="toolbar-group">
-          <button
-            type="button"
-            class="toolbar-button"
-            id="sidebar-toggle"
-            aria-label="Toggle notes sidebar"
-            aria-controls="notes-sidebar"
-            aria-expanded="true"
-          >
-            <i class="fa-solid fa-table-columns" aria-hidden="true"></i></button
-          ><span class="toolbar-label">Security Musings</span>
-        </div>
-        <a
-          class="toolbar-button"
-          href="../index.html"
-          aria-label="Back to archives"
-          >←</a
-        >
-      </div>
-      <div class="notes-layout">
-        <aside
-          class="notes-sidebar"
-          id="notes-sidebar"
-          aria-label="Article navigation"
-        >
-          <h2 class="sidebar-heading">From the archives</h2>
-          <a class="note-preview" href="essay1.html"
-            ><strong class="preview-title"
-              >The Garden of Forking Paths Vs. An Onion</strong
-            ><span class="preview-date">June 08, 2026</span></a
-          ><a class="note-preview" href="ctf-writeup.html"
-            ><strong class="preview-title"
-              >Sisterhood of the Traveling Packets CTF </strong
-            ><span class="preview-date">August 20, 2026</span></a
-          ><a class="note-preview" href="code-review.html" aria-current="page"
-            ><strong class="preview-title"
-              >How to catch bugs online (fast)?</strong
-            ><span class="preview-date">August 28, 2026</span></a
-          >
-          <p class="sidebar-footer">3 notes · By Siddhi</p>
-        </aside>
-        <div
-          class="note-scroll"
-          tabindex="0"
-          role="region"
-          aria-label="Write-up"
-        >
-          <div class="post-wrapper">
-            <header class="post-header">
-              <div class="category-badge">
-                <span class="badge-text">Security Musings</span>
-              </div>
-
-              <h1 class="post-title">How to catch bugs online (fast)?</h1>
-              <p class="post-subtitle">
-                Catching bugs requires different tools and techniques depending
+        <article id="article" aria-labelledby="article-title">
+          <header class="article-header">
+            <p class="eyebrow">Security Musings</p>
+            <h1 id="article-title">How to catch bugs online (fast)?</h1>
+            <p class="article-description">Catching bugs requires different tools and techniques depending
                 on whether you are targeting flying insects, crawling
-                ground-dwellers, or <i>source code.</i>
-              </p>
-
-              <div class="post-meta">
+                ground-dwellers, or <i>source code.</i></p>
+            <div class="article-meta">
                 <span>Published: August 28, 2026</span>
                 <span>•</span>
                 <span>By: Siddhi</span>
               </div>
-            </header>
-
-            <hr class="post-divider" />
-
-            <article class="post-content">
+          </header>
+          <div class="article-body">
               <p>
                 I was once doom scrolling on Twitter
                 <i>(*I don’t like to call it X yet)</i> and came across a piece
@@ -438,54 +408,14 @@ def export_users():
                   >
                 </li>
               </ul>
-            </article>
-
-            <footer class="post-navigation">
-              <a href="../index.html" class="back-link"
-                >&lt; Back to Archives</a
-              >
-            </footer>
-          </div>
-        </div>
+            </div>
+        </article>
+        <footer class="article-footer">
+          <a href="../index.html#writing">← All writing</a>
+          <a href="#top">Back to top ↑</a>
+        </footer>
       </div>
-      <div class="notes-status">
-        <span>Security Musings</span><span>By Siddhi</span>
-      </div>
-    </main>
-    <footer class="social-footer" aria-label="Social links">
-      <a
-        href="https://www.linkedin.com/in/siddhi-lad/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-box"
-        aria-label="LinkedIn"
-      >
-        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-      </a>
-      <a
-        href="https://github.com/png270"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-box"
-        aria-label="GitHub"
-      >
-        <i class="fab fa-github" aria-hidden="true"></i>
-      </a>
-      <a
-        href="mailto:siddhi.lad00@gmail.com"
-        class="social-box"
-        aria-label="Email"
-      >
-        <i class="fas fa-envelope" aria-hidden="true"></i>
-      </a>
-    </footer>
-
-    <!-- Prism.js Core CDN (Runs the syntax token parsing) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <!-- Add language components as needed (Python, Go, Bash, etc.) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-
-    <script src="../site.js" defer></script>
-  </body>
+    </div>
+  </main>
+</body>
 </html>
